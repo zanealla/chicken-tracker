@@ -1,0 +1,7011 @@
+{
+  "productionId": "B1_2024-11-05",
+  "settings": {
+    "startDate": "2024-11-05",
+    "totalChickens": 102380,
+    "weeksCount": 100,
+    "weekStartDay": 1
+  },
+  "days": [
+    {
+      "index": 1,
+      "date": "2024-11-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 2,
+      "date": "2024-11-05T23:00:00.000Z",
+      "mortality": 42,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 3,
+      "date": "2024-11-06T23:00:00.000Z",
+      "mortality": 37,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 4,
+      "date": "2024-11-07T23:00:00.000Z",
+      "mortality": 36,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 5,
+      "date": "2024-11-08T23:00:00.000Z",
+      "mortality": 75,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 6,
+      "date": "2024-11-09T23:00:00.000Z",
+      "mortality": 28,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 7,
+      "date": "2024-11-10T23:00:00.000Z",
+      "mortality": 24,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 8,
+      "date": "2024-11-11T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 3000,
+      "notes": ""
+    },
+    {
+      "index": 9,
+      "date": "2024-11-12T23:00:00.000Z",
+      "mortality": 87,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 2000,
+      "notes": ""
+    },
+    {
+      "index": 10,
+      "date": "2024-11-13T23:00:00.000Z",
+      "mortality": 16,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 2000,
+      "notes": ""
+    },
+    {
+      "index": 11,
+      "date": "2024-11-14T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 2000,
+      "notes": ""
+    },
+    {
+      "index": 12,
+      "date": "2024-11-15T23:00:00.000Z",
+      "mortality": 30,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 3000,
+      "notes": ""
+    },
+    {
+      "index": 13,
+      "date": "2024-11-16T23:00:00.000Z",
+      "mortality": 33,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 4000,
+      "notes": ""
+    },
+    {
+      "index": 14,
+      "date": "2024-11-17T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 3000,
+      "notes": ""
+    },
+    {
+      "index": 15,
+      "date": "2024-11-18T23:00:00.000Z",
+      "mortality": 10,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 4000,
+      "notes": ""
+    },
+    {
+      "index": 16,
+      "date": "2024-11-19T23:00:00.000Z",
+      "mortality": 15,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 4000,
+      "notes": ""
+    },
+    {
+      "index": 17,
+      "date": "2024-11-20T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 4000,
+      "notes": ""
+    },
+    {
+      "index": 18,
+      "date": "2024-11-21T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 4000,
+      "notes": ""
+    },
+    {
+      "index": 19,
+      "date": "2024-11-22T23:00:00.000Z",
+      "mortality": 3,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 4000,
+      "notes": ""
+    },
+    {
+      "index": 20,
+      "date": "2024-11-23T23:00:00.000Z",
+      "mortality": 3,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 5000,
+      "notes": ""
+    },
+    {
+      "index": 21,
+      "date": "2024-11-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 3000,
+      "notes": ""
+    },
+    {
+      "index": 22,
+      "date": "2024-11-25T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 6000,
+      "notes": ""
+    },
+    {
+      "index": 23,
+      "date": "2024-11-26T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 5000,
+      "notes": ""
+    },
+    {
+      "index": 24,
+      "date": "2024-11-27T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 5000,
+      "notes": ""
+    },
+    {
+      "index": 25,
+      "date": "2024-11-28T23:00:00.000Z",
+      "mortality": 9,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 5000,
+      "notes": ""
+    },
+    {
+      "index": 26,
+      "date": "2024-11-29T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 5000,
+      "notes": ""
+    },
+    {
+      "index": 27,
+      "date": "2024-11-30T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 5000,
+      "notes": ""
+    },
+    {
+      "index": 28,
+      "date": "2024-12-01T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 5000,
+      "notes": ""
+    },
+    {
+      "index": 29,
+      "date": "2024-12-02T23:00:00.000Z",
+      "mortality": 6,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 6000,
+      "notes": ""
+    },
+    {
+      "index": 30,
+      "date": "2024-12-03T23:00:00.000Z",
+      "mortality": 10,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 31,
+      "date": "2024-12-04T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 32,
+      "date": "2024-12-05T23:00:00.000Z",
+      "mortality": 6,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 6000,
+      "notes": ""
+    },
+    {
+      "index": 33,
+      "date": "2024-12-06T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 5000,
+      "notes": ""
+    },
+    {
+      "index": 34,
+      "date": "2024-12-07T23:00:00.000Z",
+      "mortality": 2,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 35,
+      "date": "2024-12-08T23:00:00.000Z",
+      "mortality": 3,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 8000,
+      "notes": ""
+    },
+    {
+      "index": 36,
+      "date": "2024-12-09T23:00:00.000Z",
+      "mortality": 6,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 37,
+      "date": "2024-12-10T23:00:00.000Z",
+      "mortality": 3,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 8000,
+      "notes": ""
+    },
+    {
+      "index": 38,
+      "date": "2024-12-11T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 6000,
+      "notes": ""
+    },
+    {
+      "index": 39,
+      "date": "2024-12-12T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 40,
+      "date": "2024-12-13T23:00:00.000Z",
+      "mortality": 70,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 41,
+      "date": "2024-12-14T23:00:00.000Z",
+      "mortality": 117,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 42,
+      "date": "2024-12-15T23:00:00.000Z",
+      "mortality": 218,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 6000,
+      "notes": ""
+    },
+    {
+      "index": 43,
+      "date": "2024-12-16T23:00:00.000Z",
+      "mortality": 209,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 44,
+      "date": "2024-12-17T23:00:00.000Z",
+      "mortality": 366,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 45,
+      "date": "2024-12-18T23:00:00.000Z",
+      "mortality": 1176,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 46,
+      "date": "2024-12-19T23:00:00.000Z",
+      "mortality": 1581,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 8000,
+      "notes": ""
+    },
+    {
+      "index": 47,
+      "date": "2024-12-20T23:00:00.000Z",
+      "mortality": 1318,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 8000,
+      "notes": ""
+    },
+    {
+      "index": 48,
+      "date": "2024-12-21T23:00:00.000Z",
+      "mortality": 1027,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 8000,
+      "notes": ""
+    },
+    {
+      "index": 49,
+      "date": "2024-12-22T23:00:00.000Z",
+      "mortality": 650,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 8000,
+      "notes": ""
+    },
+    {
+      "index": 50,
+      "date": "2024-12-23T23:00:00.000Z",
+      "mortality": 549,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 8000,
+      "notes": ""
+    },
+    {
+      "index": 51,
+      "date": "2024-12-24T23:00:00.000Z",
+      "mortality": 288,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 8000,
+      "notes": ""
+    },
+    {
+      "index": 52,
+      "date": "2024-12-25T23:00:00.000Z",
+      "mortality": 179,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 8000,
+      "notes": ""
+    },
+    {
+      "index": 53,
+      "date": "2024-12-26T23:00:00.000Z",
+      "mortality": 148,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 54,
+      "date": "2024-12-27T23:00:00.000Z",
+      "mortality": 414,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 55,
+      "date": "2024-12-28T23:00:00.000Z",
+      "mortality": 294,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 56,
+      "date": "2024-12-29T23:00:00.000Z",
+      "mortality": 191,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 57,
+      "date": "2024-12-30T23:00:00.000Z",
+      "mortality": 300,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 58,
+      "date": "2024-12-31T23:00:00.000Z",
+      "mortality": 250,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 59,
+      "date": "2025-01-01T23:00:00.000Z",
+      "mortality": 160,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 60,
+      "date": "2025-01-02T23:00:00.000Z",
+      "mortality": 146,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 61,
+      "date": "2025-01-03T23:00:00.000Z",
+      "mortality": 128,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 62,
+      "date": "2025-01-04T23:00:00.000Z",
+      "mortality": 237,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 63,
+      "date": "2025-01-05T23:00:00.000Z",
+      "mortality": 132,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 64,
+      "date": "2025-01-06T23:00:00.000Z",
+      "mortality": 61,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 13000,
+      "notes": ""
+    },
+    {
+      "index": 65,
+      "date": "2025-01-07T23:00:00.000Z",
+      "mortality": 56,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 13000,
+      "notes": ""
+    },
+    {
+      "index": 66,
+      "date": "2025-01-08T23:00:00.000Z",
+      "mortality": 180,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 67,
+      "date": "2025-01-09T23:00:00.000Z",
+      "mortality": 128,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 68,
+      "date": "2025-01-10T23:00:00.000Z",
+      "mortality": 56,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 69,
+      "date": "2025-01-11T23:00:00.000Z",
+      "mortality": 38,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 70,
+      "date": "2025-01-12T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 71,
+      "date": "2025-01-13T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 72,
+      "date": "2025-01-14T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 73,
+      "date": "2025-01-15T23:00:00.000Z",
+      "mortality": 13,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 74,
+      "date": "2025-01-16T23:00:00.000Z",
+      "mortality": 14,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 75,
+      "date": "2025-01-17T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 76,
+      "date": "2025-01-18T23:00:00.000Z",
+      "mortality": 14,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 13000,
+      "notes": ""
+    },
+    {
+      "index": 77,
+      "date": "2025-01-19T23:00:00.000Z",
+      "mortality": 14,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 78,
+      "date": "2025-01-20T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 79,
+      "date": "2025-01-21T23:00:00.000Z",
+      "mortality": 9,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 80,
+      "date": "2025-01-22T23:00:00.000Z",
+      "mortality": 11,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 81,
+      "date": "2025-01-23T23:00:00.000Z",
+      "mortality": 10,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 82,
+      "date": "2025-01-24T23:00:00.000Z",
+      "mortality": 36,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 83,
+      "date": "2025-01-25T23:00:00.000Z",
+      "mortality": 82,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 84,
+      "date": "2025-01-26T23:00:00.000Z",
+      "mortality": 61,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 13000,
+      "notes": ""
+    },
+    {
+      "index": 85,
+      "date": "2025-01-27T23:00:00.000Z",
+      "mortality": 29,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 15000,
+      "notes": ""
+    },
+    {
+      "index": 86,
+      "date": "2025-01-28T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 13000,
+      "notes": ""
+    },
+    {
+      "index": 87,
+      "date": "2025-01-29T23:00:00.000Z",
+      "mortality": 11,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 88,
+      "date": "2025-01-30T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 14000,
+      "notes": ""
+    },
+    {
+      "index": 89,
+      "date": "2025-01-31T23:00:00.000Z",
+      "mortality": 13,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 90,
+      "date": "2025-02-01T23:00:00.000Z",
+      "mortality": 9,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 91,
+      "date": "2025-02-02T23:00:00.000Z",
+      "mortality": 13,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 92,
+      "date": "2025-02-03T23:00:00.000Z",
+      "mortality": 12,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 93,
+      "date": "2025-02-04T23:00:00.000Z",
+      "mortality": 10,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 94,
+      "date": "2025-02-05T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 95,
+      "date": "2025-02-06T23:00:00.000Z",
+      "mortality": 10,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 13000,
+      "notes": ""
+    },
+    {
+      "index": 96,
+      "date": "2025-02-07T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 97,
+      "date": "2025-02-08T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 13000,
+      "notes": ""
+    },
+    {
+      "index": 98,
+      "date": "2025-02-09T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 99,
+      "date": "2025-02-10T23:00:00.000Z",
+      "mortality": 10,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 100,
+      "date": "2025-02-11T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 101,
+      "date": "2025-02-12T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 102,
+      "date": "2025-02-13T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 13000,
+      "notes": ""
+    },
+    {
+      "index": 103,
+      "date": "2025-02-14T23:00:00.000Z",
+      "mortality": 9,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 104,
+      "date": "2025-02-15T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 14000,
+      "notes": ""
+    },
+    {
+      "index": 105,
+      "date": "2025-02-16T23:00:00.000Z",
+      "mortality": 12,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 106,
+      "date": "2025-02-17T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 107,
+      "date": "2025-02-18T23:00:00.000Z",
+      "mortality": 6,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 108,
+      "date": "2025-02-19T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 109,
+      "date": "2025-02-20T23:00:00.000Z",
+      "mortality": 11,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 13000,
+      "notes": ""
+    },
+    {
+      "index": 110,
+      "date": "2025-02-21T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 111,
+      "date": "2025-02-22T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 112,
+      "date": "2025-02-23T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 113,
+      "date": "2025-02-24T23:00:00.000Z",
+      "mortality": 6,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 114,
+      "date": "2025-02-25T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 115,
+      "date": "2025-02-26T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 116,
+      "date": "2025-02-27T23:00:00.000Z",
+      "mortality": 6,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 80000,
+      "notes": ""
+    },
+    {
+      "index": 117,
+      "date": "2025-02-28T23:00:00.000Z",
+      "mortality": 6,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 118,
+      "date": "2025-03-01T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 119,
+      "date": "2025-03-02T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 120,
+      "date": "2025-03-03T23:00:00.000Z",
+      "mortality": 6,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 121,
+      "date": "2025-03-04T23:00:00.000Z",
+      "mortality": 6,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 122,
+      "date": "2025-03-05T23:00:00.000Z",
+      "mortality": 3,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 123,
+      "date": "2025-03-06T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 12000,
+      "notes": ""
+    },
+    {
+      "index": 124,
+      "date": "2025-03-07T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 125,
+      "date": "2025-03-08T23:00:00.000Z",
+      "mortality": 3,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 126,
+      "date": "2025-03-09T23:00:00.000Z",
+      "mortality": 3,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 127,
+      "date": "2025-03-10T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 128,
+      "date": "2025-03-11T23:00:00.000Z",
+      "mortality": 7,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 129,
+      "date": "2025-03-12T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 130,
+      "date": "2025-03-13T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 11000,
+      "notes": ""
+    },
+    {
+      "index": 131,
+      "date": "2025-03-14T23:00:00.000Z",
+      "mortality": 4,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 9000,
+      "notes": ""
+    },
+    {
+      "index": 132,
+      "date": "2025-03-15T23:00:00.000Z",
+      "mortality": 5,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 133,
+      "date": "2025-03-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 7000,
+      "notes": ""
+    },
+    {
+      "index": 134,
+      "date": "2025-03-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 135,
+      "date": "2025-03-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 136,
+      "date": "2025-03-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 137,
+      "date": "2025-03-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 138,
+      "date": "2025-03-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 139,
+      "date": "2025-03-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 140,
+      "date": "2025-03-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 141,
+      "date": "2025-03-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 142,
+      "date": "2025-03-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 143,
+      "date": "2025-03-26T23:00:00.000Z",
+      "mortality": 10,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 144,
+      "date": "2025-03-27T23:00:00.000Z",
+      "mortality": 10,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 145,
+      "date": "2025-03-28T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 146,
+      "date": "2025-03-29T23:00:00.000Z",
+      "mortality": 8,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 147,
+      "date": "2025-03-30T23:00:00.000Z",
+      "mortality": 17,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 15000,
+      "notes": ""
+    },
+    {
+      "index": 148,
+      "date": "2025-03-31T23:00:00.000Z",
+      "mortality": 17,
+      "cartons": 1283,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 149,
+      "date": "2025-04-01T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 4482,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 15000,
+      "notes": ""
+    },
+    {
+      "index": 150,
+      "date": "2025-04-02T23:00:00.000Z",
+      "mortality": 65,
+      "cartons": 2153,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 151,
+      "date": "2025-04-03T23:00:00.000Z",
+      "mortality": 52,
+      "cartons": 1653,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 152,
+      "date": "2025-04-04T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 1774,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 153,
+      "date": "2025-04-05T23:00:00.000Z",
+      "mortality": 56,
+      "cartons": 1688,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 154,
+      "date": "2025-04-06T23:00:00.000Z",
+      "mortality": 36,
+      "cartons": 2077,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 155,
+      "date": "2025-04-07T23:00:00.000Z",
+      "mortality": 31,
+      "cartons": 2064,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 156,
+      "date": "2025-04-08T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2419,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 157,
+      "date": "2025-04-09T23:00:00.000Z",
+      "mortality": 31,
+      "cartons": 2486,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 158,
+      "date": "2025-04-10T23:00:00.000Z",
+      "mortality": 40,
+      "cartons": 2524,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 159,
+      "date": "2025-04-11T23:00:00.000Z",
+      "mortality": 42,
+      "cartons": 2573,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 160,
+      "date": "2025-04-12T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2622,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 161,
+      "date": "2025-04-13T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 2687,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 162,
+      "date": "2025-04-14T23:00:00.000Z",
+      "mortality": 38,
+      "cartons": 2735,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 163,
+      "date": "2025-04-15T23:00:00.000Z",
+      "mortality": 47,
+      "cartons": 2746,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 164,
+      "date": "2025-04-16T23:00:00.000Z",
+      "mortality": 66,
+      "cartons": 2730,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 165,
+      "date": "2025-04-17T23:00:00.000Z",
+      "mortality": 82,
+      "cartons": 2822,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 166,
+      "date": "2025-04-18T23:00:00.000Z",
+      "mortality": 72,
+      "cartons": 2805,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 167,
+      "date": "2025-04-19T23:00:00.000Z",
+      "mortality": 52,
+      "cartons": 2800,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 168,
+      "date": "2025-04-20T23:00:00.000Z",
+      "mortality": 60,
+      "cartons": 2746,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 169,
+      "date": "2025-04-21T23:00:00.000Z",
+      "mortality": 65,
+      "cartons": 2841,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 170,
+      "date": "2025-04-22T23:00:00.000Z",
+      "mortality": 40,
+      "cartons": 2837,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 171,
+      "date": "2025-04-23T23:00:00.000Z",
+      "mortality": 36,
+      "cartons": 2831,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 15000,
+      "notes": ""
+    },
+    {
+      "index": 172,
+      "date": "2025-04-24T23:00:00.000Z",
+      "mortality": 49,
+      "cartons": 2814,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 173,
+      "date": "2025-04-25T23:00:00.000Z",
+      "mortality": 39,
+      "cartons": 2813,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 174,
+      "date": "2025-04-26T23:00:00.000Z",
+      "mortality": 29,
+      "cartons": 2818,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 175,
+      "date": "2025-04-27T23:00:00.000Z",
+      "mortality": 45,
+      "cartons": 2789,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 176,
+      "date": "2025-04-28T23:00:00.000Z",
+      "mortality": 50,
+      "cartons": 2734,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 177,
+      "date": "2025-04-29T23:00:00.000Z",
+      "mortality": 70,
+      "cartons": 2888,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 178,
+      "date": "2025-04-30T23:00:00.000Z",
+      "mortality": 30,
+      "cartons": 2751,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 179,
+      "date": "2025-05-01T23:00:00.000Z",
+      "mortality": 51,
+      "cartons": 2781,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 180,
+      "date": "2025-05-02T23:00:00.000Z",
+      "mortality": 55,
+      "cartons": 2780,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 181,
+      "date": "2025-05-03T23:00:00.000Z",
+      "mortality": 54,
+      "cartons": 2780,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 182,
+      "date": "2025-05-04T23:00:00.000Z",
+      "mortality": 45,
+      "cartons": 2780,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 183,
+      "date": "2025-05-05T23:00:00.000Z",
+      "mortality": 28,
+      "cartons": 2777,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 184,
+      "date": "2025-05-06T23:00:00.000Z",
+      "mortality": 54,
+      "cartons": 2760,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 185,
+      "date": "2025-05-07T23:00:00.000Z",
+      "mortality": 57,
+      "cartons": 2754,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 186,
+      "date": "2025-05-08T23:00:00.000Z",
+      "mortality": 42,
+      "cartons": 2755,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 187,
+      "date": "2025-05-09T23:00:00.000Z",
+      "mortality": 39,
+      "cartons": 2750,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 188,
+      "date": "2025-05-10T23:00:00.000Z",
+      "mortality": 55,
+      "cartons": 2748,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 189,
+      "date": "2025-05-11T23:00:00.000Z",
+      "mortality": 53,
+      "cartons": 2751,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 190,
+      "date": "2025-05-12T23:00:00.000Z",
+      "mortality": 50,
+      "cartons": 2745,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 191,
+      "date": "2025-05-13T23:00:00.000Z",
+      "mortality": 51,
+      "cartons": 2740,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 192,
+      "date": "2025-05-14T23:00:00.000Z",
+      "mortality": 53,
+      "cartons": 2720,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 193,
+      "date": "2025-05-15T23:00:00.000Z",
+      "mortality": 49,
+      "cartons": 2729,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 194,
+      "date": "2025-05-16T23:00:00.000Z",
+      "mortality": 35,
+      "cartons": 2718,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 195,
+      "date": "2025-05-17T23:00:00.000Z",
+      "mortality": 49,
+      "cartons": 2703,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 196,
+      "date": "2025-05-18T23:00:00.000Z",
+      "mortality": 35,
+      "cartons": 2705,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 197,
+      "date": "2025-05-19T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2693,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 198,
+      "date": "2025-05-20T23:00:00.000Z",
+      "mortality": 50,
+      "cartons": 2694,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 199,
+      "date": "2025-05-21T23:00:00.000Z",
+      "mortality": 52,
+      "cartons": 2580,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 200,
+      "date": "2025-05-22T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2736,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 201,
+      "date": "2025-05-23T23:00:00.000Z",
+      "mortality": 30,
+      "cartons": 2661,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 202,
+      "date": "2025-05-24T23:00:00.000Z",
+      "mortality": 42,
+      "cartons": 2670,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 203,
+      "date": "2025-05-25T23:00:00.000Z",
+      "mortality": 33,
+      "cartons": 2677,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 204,
+      "date": "2025-05-26T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2680,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 205,
+      "date": "2025-05-27T23:00:00.000Z",
+      "mortality": 26,
+      "cartons": 2703,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 206,
+      "date": "2025-05-28T23:00:00.000Z",
+      "mortality": 29,
+      "cartons": 2720,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 207,
+      "date": "2025-05-29T23:00:00.000Z",
+      "mortality": 31,
+      "cartons": 2740,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 208,
+      "date": "2025-05-30T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2750,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 22000,
+      "notes": ""
+    },
+    {
+      "index": 209,
+      "date": "2025-05-31T23:00:00.000Z",
+      "mortality": 35,
+      "cartons": 2760,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 210,
+      "date": "2025-06-01T23:00:00.000Z",
+      "mortality": 37,
+      "cartons": 2770,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 211,
+      "date": "2025-06-02T23:00:00.000Z",
+      "mortality": 32,
+      "cartons": 2778,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 212,
+      "date": "2025-06-03T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2778,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 213,
+      "date": "2025-06-04T23:00:00.000Z",
+      "mortality": 28,
+      "cartons": 2779,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 214,
+      "date": "2025-06-05T23:00:00.000Z",
+      "mortality": 31,
+      "cartons": 2785,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 215,
+      "date": "2025-06-06T23:00:00.000Z",
+      "mortality": 32,
+      "cartons": 2781,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 216,
+      "date": "2025-06-07T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2781,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 217,
+      "date": "2025-06-08T23:00:00.000Z",
+      "mortality": 24,
+      "cartons": 2787,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 218,
+      "date": "2025-06-09T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2781,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 219,
+      "date": "2025-06-10T23:00:00.000Z",
+      "mortality": 32,
+      "cartons": 2773,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 220,
+      "date": "2025-06-11T23:00:00.000Z",
+      "mortality": 30,
+      "cartons": 2754,
+      "weight": 65,
+      "chickenWeight": 1210,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 221,
+      "date": "2025-06-12T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2757,
+      "weight": 65,
+      "chickenWeight": 1200,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 222,
+      "date": "2025-06-13T23:00:00.000Z",
+      "mortality": 29,
+      "cartons": 2779,
+      "weight": 65,
+      "chickenWeight": 1200,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 223,
+      "date": "2025-06-14T23:00:00.000Z",
+      "mortality": 30,
+      "cartons": 2768,
+      "weight": 65,
+      "chickenWeight": 1200,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 224,
+      "date": "2025-06-15T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2769,
+      "weight": 65,
+      "chickenWeight": 1200,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 225,
+      "date": "2025-06-16T23:00:00.000Z",
+      "mortality": 30,
+      "cartons": 2757,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 226,
+      "date": "2025-06-17T23:00:00.000Z",
+      "mortality": 32,
+      "cartons": 2758,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 227,
+      "date": "2025-06-18T23:00:00.000Z",
+      "mortality": 37,
+      "cartons": 2764,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 228,
+      "date": "2025-06-19T23:00:00.000Z",
+      "mortality": 38,
+      "cartons": 2764,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 26000,
+      "notes": ""
+    },
+    {
+      "index": 229,
+      "date": "2025-06-20T23:00:00.000Z",
+      "mortality": 38,
+      "cartons": 2764,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 230,
+      "date": "2025-06-21T23:00:00.000Z",
+      "mortality": 29,
+      "cartons": 2732,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 231,
+      "date": "2025-06-22T23:00:00.000Z",
+      "mortality": 32,
+      "cartons": 2775,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 232,
+      "date": "2025-06-23T23:00:00.000Z",
+      "mortality": 35,
+      "cartons": 2758,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 233,
+      "date": "2025-06-24T23:00:00.000Z",
+      "mortality": 26,
+      "cartons": 2762,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 234,
+      "date": "2025-06-25T23:00:00.000Z",
+      "mortality": 33,
+      "cartons": 2763,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 235,
+      "date": "2025-06-26T23:00:00.000Z",
+      "mortality": 36,
+      "cartons": 2763,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 236,
+      "date": "2025-06-27T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2754,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 237,
+      "date": "2025-06-28T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2752,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 238,
+      "date": "2025-06-29T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2752,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 239,
+      "date": "2025-06-30T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2755,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 240,
+      "date": "2025-07-01T23:00:00.000Z",
+      "mortality": 28,
+      "cartons": 2759,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 241,
+      "date": "2025-07-02T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2713,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 242,
+      "date": "2025-07-03T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2782,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 243,
+      "date": "2025-07-04T23:00:00.000Z",
+      "mortality": 32,
+      "cartons": 2742,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 244,
+      "date": "2025-07-05T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2738,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 245,
+      "date": "2025-07-06T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 2719,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 246,
+      "date": "2025-07-07T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2770,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 247,
+      "date": "2025-07-08T23:00:00.000Z",
+      "mortality": 30,
+      "cartons": 2744,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 248,
+      "date": "2025-07-09T23:00:00.000Z",
+      "mortality": 35,
+      "cartons": 2734,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 249,
+      "date": "2025-07-10T23:00:00.000Z",
+      "mortality": 26,
+      "cartons": 2732,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 250,
+      "date": "2025-07-11T23:00:00.000Z",
+      "mortality": 32,
+      "cartons": 2729,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 251,
+      "date": "2025-07-12T23:00:00.000Z",
+      "mortality": 35,
+      "cartons": 2741,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 252,
+      "date": "2025-07-13T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2735,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 253,
+      "date": "2025-07-14T23:00:00.000Z",
+      "mortality": 31,
+      "cartons": 2703,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 254,
+      "date": "2025-07-15T23:00:00.000Z",
+      "mortality": 32,
+      "cartons": 2756,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 255,
+      "date": "2025-07-16T23:00:00.000Z",
+      "mortality": 35,
+      "cartons": 2715,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 256,
+      "date": "2025-07-17T23:00:00.000Z",
+      "mortality": 40,
+      "cartons": 2727,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 24000,
+      "notes": ""
+    },
+    {
+      "index": 257,
+      "date": "2025-07-18T23:00:00.000Z",
+      "mortality": 33,
+      "cartons": 2725,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 258,
+      "date": "2025-07-19T23:00:00.000Z",
+      "mortality": 35,
+      "cartons": 2739,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 259,
+      "date": "2025-07-20T23:00:00.000Z",
+      "mortality": 38,
+      "cartons": 2718,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 260,
+      "date": "2025-07-21T23:00:00.000Z",
+      "mortality": 26,
+      "cartons": 2727,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 261,
+      "date": "2025-07-22T23:00:00.000Z",
+      "mortality": 35,
+      "cartons": 2731,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 23000,
+      "notes": ""
+    },
+    {
+      "index": 262,
+      "date": "2025-07-23T23:00:00.000Z",
+      "mortality": 38,
+      "cartons": 2715,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 263,
+      "date": "2025-07-24T23:00:00.000Z",
+      "mortality": 40,
+      "cartons": 2713,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 264,
+      "date": "2025-07-25T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2711,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 265,
+      "date": "2025-07-26T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 2733,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 266,
+      "date": "2025-07-27T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2731,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 267,
+      "date": "2025-07-28T23:00:00.000Z",
+      "mortality": 26,
+      "cartons": 2716,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 268,
+      "date": "2025-07-29T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2730,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 269,
+      "date": "2025-07-30T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2689,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 270,
+      "date": "2025-07-31T23:00:00.000Z",
+      "mortality": 24,
+      "cartons": 2715,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 22000,
+      "notes": ""
+    },
+    {
+      "index": 271,
+      "date": "2025-08-01T23:00:00.000Z",
+      "mortality": 28,
+      "cartons": 2699,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 272,
+      "date": "2025-08-02T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2716,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 273,
+      "date": "2025-08-03T23:00:00.000Z",
+      "mortality": 24,
+      "cartons": 2694,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 274,
+      "date": "2025-08-04T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2708,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 275,
+      "date": "2025-08-05T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2707,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 276,
+      "date": "2025-08-06T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2703,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 22000,
+      "notes": ""
+    },
+    {
+      "index": 277,
+      "date": "2025-08-07T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2704,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 278,
+      "date": "2025-08-08T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2706,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 22000,
+      "notes": ""
+    },
+    {
+      "index": 279,
+      "date": "2025-08-09T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2705,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 280,
+      "date": "2025-08-10T23:00:00.000Z",
+      "mortality": 28,
+      "cartons": 2701,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 281,
+      "date": "2025-08-11T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2692,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 282,
+      "date": "2025-08-12T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 2686,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 283,
+      "date": "2025-08-13T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2639,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 25000,
+      "notes": ""
+    },
+    {
+      "index": 284,
+      "date": "2025-08-14T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2753,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 285,
+      "date": "2025-08-15T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2706,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 286,
+      "date": "2025-08-16T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2709,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 287,
+      "date": "2025-08-17T23:00:00.000Z",
+      "mortality": 26,
+      "cartons": 2709,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 288,
+      "date": "2025-08-18T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2694,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 289,
+      "date": "2025-08-19T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2682,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 290,
+      "date": "2025-08-20T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2699,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 291,
+      "date": "2025-08-21T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2686,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 292,
+      "date": "2025-08-22T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2702,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 293,
+      "date": "2025-08-23T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2684,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 294,
+      "date": "2025-08-24T23:00:00.000Z",
+      "mortality": 24,
+      "cartons": 2704,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 295,
+      "date": "2025-08-25T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2687,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 296,
+      "date": "2025-08-26T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2705,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 297,
+      "date": "2025-08-27T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2676,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 298,
+      "date": "2025-08-28T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2697,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 299,
+      "date": "2025-08-29T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2696,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 300,
+      "date": "2025-08-30T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2671,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 301,
+      "date": "2025-08-31T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2681,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 302,
+      "date": "2025-09-01T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2716,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 303,
+      "date": "2025-09-02T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2699,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 304,
+      "date": "2025-09-03T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2683,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 305,
+      "date": "2025-09-04T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2668,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 21000,
+      "notes": ""
+    },
+    {
+      "index": 306,
+      "date": "2025-09-05T23:00:00.000Z",
+      "mortality": 31,
+      "cartons": 2723,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 307,
+      "date": "2025-09-06T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2694,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 308,
+      "date": "2025-09-07T23:00:00.000Z",
+      "mortality": 24,
+      "cartons": 2668,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 309,
+      "date": "2025-09-08T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2676,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 310,
+      "date": "2025-09-09T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2668,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 311,
+      "date": "2025-09-10T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 2685,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 312,
+      "date": "2025-09-11T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2662,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 313,
+      "date": "2025-09-12T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2669,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 314,
+      "date": "2025-09-13T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2661,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 315,
+      "date": "2025-09-14T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2668,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 316,
+      "date": "2025-09-15T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2670,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 317,
+      "date": "2025-09-16T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2667,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 318,
+      "date": "2025-09-17T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2684,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 319,
+      "date": "2025-09-18T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2681,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 320,
+      "date": "2025-09-19T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 2671,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 321,
+      "date": "2025-09-20T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2681,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 322,
+      "date": "2025-09-21T23:00:00.000Z",
+      "mortality": 28,
+      "cartons": 2693,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 323,
+      "date": "2025-09-22T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2667,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 324,
+      "date": "2025-09-23T23:00:00.000Z",
+      "mortality": 24,
+      "cartons": 2664,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 325,
+      "date": "2025-09-24T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2670,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 326,
+      "date": "2025-09-25T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 2689,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 327,
+      "date": "2025-09-26T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2693,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 328,
+      "date": "2025-09-27T23:00:00.000Z",
+      "mortality": 16,
+      "cartons": 2631,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 329,
+      "date": "2025-09-28T23:00:00.000Z",
+      "mortality": 15,
+      "cartons": 2674,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 330,
+      "date": "2025-09-29T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2658,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 331,
+      "date": "2025-09-30T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2665,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 332,
+      "date": "2025-10-01T23:00:00.000Z",
+      "mortality": 16,
+      "cartons": 2637,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 333,
+      "date": "2025-10-02T23:00:00.000Z",
+      "mortality": 14,
+      "cartons": 2667,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 334,
+      "date": "2025-10-03T23:00:00.000Z",
+      "mortality": 15,
+      "cartons": 2666,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 10000,
+      "notes": ""
+    },
+    {
+      "index": 335,
+      "date": "2025-10-04T23:00:00.000Z",
+      "mortality": 14,
+      "cartons": 2676,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 336,
+      "date": "2025-10-05T23:00:00.000Z",
+      "mortality": 15,
+      "cartons": 2670,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 337,
+      "date": "2025-10-06T23:00:00.000Z",
+      "mortality": 15,
+      "cartons": 2669,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 338,
+      "date": "2025-10-07T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2680,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 339,
+      "date": "2025-10-08T23:00:00.000Z",
+      "mortality": 16,
+      "cartons": 2667,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 340,
+      "date": "2025-10-09T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2657,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 341,
+      "date": "2025-10-10T23:00:00.000Z",
+      "mortality": 16,
+      "cartons": 2663,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 342,
+      "date": "2025-10-11T23:00:00.000Z",
+      "mortality": 17,
+      "cartons": 2639,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 343,
+      "date": "2025-10-12T23:00:00.000Z",
+      "mortality": 16,
+      "cartons": 2671,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 344,
+      "date": "2025-10-13T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2656,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 345,
+      "date": "2025-10-14T23:00:00.000Z",
+      "mortality": 19,
+      "cartons": 2654,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 346,
+      "date": "2025-10-15T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2648,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 347,
+      "date": "2025-10-16T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2659,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 348,
+      "date": "2025-10-17T23:00:00.000Z",
+      "mortality": 22,
+      "cartons": 2646,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 349,
+      "date": "2025-10-18T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2637,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 20000,
+      "notes": ""
+    },
+    {
+      "index": 350,
+      "date": "2025-10-19T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2625,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 351,
+      "date": "2025-10-20T23:00:00.000Z",
+      "mortality": 31,
+      "cartons": 2632,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 352,
+      "date": "2025-10-21T23:00:00.000Z",
+      "mortality": 39,
+      "cartons": 2656,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 353,
+      "date": "2025-10-22T23:00:00.000Z",
+      "mortality": 25,
+      "cartons": 2610,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 354,
+      "date": "2025-10-23T23:00:00.000Z",
+      "mortality": 39,
+      "cartons": 2622,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 355,
+      "date": "2025-10-24T23:00:00.000Z",
+      "mortality": 31,
+      "cartons": 2601,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 356,
+      "date": "2025-10-25T23:00:00.000Z",
+      "mortality": 31,
+      "cartons": 2589,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 357,
+      "date": "2025-10-26T23:00:00.000Z",
+      "mortality": 24,
+      "cartons": 2597,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 358,
+      "date": "2025-10-27T23:00:00.000Z",
+      "mortality": 28,
+      "cartons": 2613,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 359,
+      "date": "2025-10-28T23:00:00.000Z",
+      "mortality": 29,
+      "cartons": 2629,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 360,
+      "date": "2025-10-29T23:00:00.000Z",
+      "mortality": 27,
+      "cartons": 2618,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 361,
+      "date": "2025-10-30T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2612,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 362,
+      "date": "2025-10-31T23:00:00.000Z",
+      "mortality": 29,
+      "cartons": 2631,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 363,
+      "date": "2025-11-01T23:00:00.000Z",
+      "mortality": 30,
+      "cartons": 2625,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 364,
+      "date": "2025-11-02T23:00:00.000Z",
+      "mortality": 28,
+      "cartons": 2606,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 365,
+      "date": "2025-11-03T23:00:00.000Z",
+      "mortality": 16,
+      "cartons": 2605,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 366,
+      "date": "2025-11-04T23:00:00.000Z",
+      "mortality": 26,
+      "cartons": 2625,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 367,
+      "date": "2025-11-05T23:00:00.000Z",
+      "mortality": 26,
+      "cartons": 2634,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 368,
+      "date": "2025-11-06T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2616,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 369,
+      "date": "2025-11-07T23:00:00.000Z",
+      "mortality": 17,
+      "cartons": 2586,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 17000,
+      "notes": ""
+    },
+    {
+      "index": 370,
+      "date": "2025-11-08T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2639,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 16000,
+      "notes": ""
+    },
+    {
+      "index": 371,
+      "date": "2025-11-09T23:00:00.000Z",
+      "mortality": 18,
+      "cartons": 2571,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 1900,
+      "notes": ""
+    },
+    {
+      "index": 372,
+      "date": "2025-11-10T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 2633,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 373,
+      "date": "2025-11-11T23:00:00.000Z",
+      "mortality": 20,
+      "cartons": 2574,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 374,
+      "date": "2025-11-12T23:00:00.000Z",
+      "mortality": 21,
+      "cartons": 2577,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 19000,
+      "notes": ""
+    },
+    {
+      "index": 375,
+      "date": "2025-11-13T23:00:00.000Z",
+      "mortality": 23,
+      "cartons": 2638,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 18000,
+      "notes": ""
+    },
+    {
+      "index": 376,
+      "date": "2025-11-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 377,
+      "date": "2025-11-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 378,
+      "date": "2025-11-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 379,
+      "date": "2025-11-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 380,
+      "date": "2025-11-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 381,
+      "date": "2025-11-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 382,
+      "date": "2025-11-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 383,
+      "date": "2025-11-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 384,
+      "date": "2025-11-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 385,
+      "date": "2025-11-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 386,
+      "date": "2025-11-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 387,
+      "date": "2025-11-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 388,
+      "date": "2025-11-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 389,
+      "date": "2025-11-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 390,
+      "date": "2025-11-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 391,
+      "date": "2025-11-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 392,
+      "date": "2025-11-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 393,
+      "date": "2025-12-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 394,
+      "date": "2025-12-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 395,
+      "date": "2025-12-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 396,
+      "date": "2025-12-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 397,
+      "date": "2025-12-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 398,
+      "date": "2025-12-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 399,
+      "date": "2025-12-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 400,
+      "date": "2025-12-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 401,
+      "date": "2025-12-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 402,
+      "date": "2025-12-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 403,
+      "date": "2025-12-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 404,
+      "date": "2025-12-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 405,
+      "date": "2025-12-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 406,
+      "date": "2025-12-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 407,
+      "date": "2025-12-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 408,
+      "date": "2025-12-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 409,
+      "date": "2025-12-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 410,
+      "date": "2025-12-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 411,
+      "date": "2025-12-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 412,
+      "date": "2025-12-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 413,
+      "date": "2025-12-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 414,
+      "date": "2025-12-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 415,
+      "date": "2025-12-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 416,
+      "date": "2025-12-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 417,
+      "date": "2025-12-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 418,
+      "date": "2025-12-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 419,
+      "date": "2025-12-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 420,
+      "date": "2025-12-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 421,
+      "date": "2025-12-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 422,
+      "date": "2025-12-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 423,
+      "date": "2025-12-31T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 424,
+      "date": "2026-01-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 425,
+      "date": "2026-01-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 426,
+      "date": "2026-01-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 427,
+      "date": "2026-01-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 428,
+      "date": "2026-01-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 429,
+      "date": "2026-01-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 430,
+      "date": "2026-01-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 431,
+      "date": "2026-01-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 432,
+      "date": "2026-01-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 433,
+      "date": "2026-01-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 434,
+      "date": "2026-01-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 435,
+      "date": "2026-01-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 436,
+      "date": "2026-01-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 437,
+      "date": "2026-01-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 438,
+      "date": "2026-01-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 439,
+      "date": "2026-01-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 440,
+      "date": "2026-01-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 441,
+      "date": "2026-01-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 442,
+      "date": "2026-01-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 443,
+      "date": "2026-01-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 444,
+      "date": "2026-01-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 445,
+      "date": "2026-01-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 446,
+      "date": "2026-01-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 447,
+      "date": "2026-01-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 448,
+      "date": "2026-01-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 449,
+      "date": "2026-01-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 450,
+      "date": "2026-01-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 451,
+      "date": "2026-01-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 452,
+      "date": "2026-01-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 453,
+      "date": "2026-01-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 454,
+      "date": "2026-01-31T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 455,
+      "date": "2026-02-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 456,
+      "date": "2026-02-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 457,
+      "date": "2026-02-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 458,
+      "date": "2026-02-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 459,
+      "date": "2026-02-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 460,
+      "date": "2026-02-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 461,
+      "date": "2026-02-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 462,
+      "date": "2026-02-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 463,
+      "date": "2026-02-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 464,
+      "date": "2026-02-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 465,
+      "date": "2026-02-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 466,
+      "date": "2026-02-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 467,
+      "date": "2026-02-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 468,
+      "date": "2026-02-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 469,
+      "date": "2026-02-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 470,
+      "date": "2026-02-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 471,
+      "date": "2026-02-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 472,
+      "date": "2026-02-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 473,
+      "date": "2026-02-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 474,
+      "date": "2026-02-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 475,
+      "date": "2026-02-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 476,
+      "date": "2026-02-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 477,
+      "date": "2026-02-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 478,
+      "date": "2026-02-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 479,
+      "date": "2026-02-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 480,
+      "date": "2026-02-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 481,
+      "date": "2026-02-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 482,
+      "date": "2026-02-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 483,
+      "date": "2026-03-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 484,
+      "date": "2026-03-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 485,
+      "date": "2026-03-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 486,
+      "date": "2026-03-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 487,
+      "date": "2026-03-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 488,
+      "date": "2026-03-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 489,
+      "date": "2026-03-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 490,
+      "date": "2026-03-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 491,
+      "date": "2026-03-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 492,
+      "date": "2026-03-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 493,
+      "date": "2026-03-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 494,
+      "date": "2026-03-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 495,
+      "date": "2026-03-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 496,
+      "date": "2026-03-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 497,
+      "date": "2026-03-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 498,
+      "date": "2026-03-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 499,
+      "date": "2026-03-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 500,
+      "date": "2026-03-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 501,
+      "date": "2026-03-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 502,
+      "date": "2026-03-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 503,
+      "date": "2026-03-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 504,
+      "date": "2026-03-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 505,
+      "date": "2026-03-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 506,
+      "date": "2026-03-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 507,
+      "date": "2026-03-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 508,
+      "date": "2026-03-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 509,
+      "date": "2026-03-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 510,
+      "date": "2026-03-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 511,
+      "date": "2026-03-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 512,
+      "date": "2026-03-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 513,
+      "date": "2026-03-31T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 514,
+      "date": "2026-04-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 515,
+      "date": "2026-04-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 516,
+      "date": "2026-04-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 517,
+      "date": "2026-04-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 518,
+      "date": "2026-04-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 519,
+      "date": "2026-04-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 520,
+      "date": "2026-04-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 521,
+      "date": "2026-04-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 522,
+      "date": "2026-04-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 523,
+      "date": "2026-04-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 524,
+      "date": "2026-04-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 525,
+      "date": "2026-04-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 526,
+      "date": "2026-04-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 527,
+      "date": "2026-04-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 528,
+      "date": "2026-04-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 529,
+      "date": "2026-04-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 530,
+      "date": "2026-04-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 531,
+      "date": "2026-04-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 532,
+      "date": "2026-04-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 533,
+      "date": "2026-04-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 534,
+      "date": "2026-04-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 535,
+      "date": "2026-04-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 536,
+      "date": "2026-04-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 537,
+      "date": "2026-04-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 538,
+      "date": "2026-04-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 539,
+      "date": "2026-04-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 540,
+      "date": "2026-04-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 541,
+      "date": "2026-04-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 542,
+      "date": "2026-04-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 543,
+      "date": "2026-04-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 544,
+      "date": "2026-05-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 545,
+      "date": "2026-05-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 546,
+      "date": "2026-05-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 547,
+      "date": "2026-05-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 548,
+      "date": "2026-05-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 549,
+      "date": "2026-05-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 550,
+      "date": "2026-05-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 551,
+      "date": "2026-05-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 552,
+      "date": "2026-05-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 553,
+      "date": "2026-05-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 554,
+      "date": "2026-05-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 555,
+      "date": "2026-05-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 556,
+      "date": "2026-05-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 557,
+      "date": "2026-05-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 558,
+      "date": "2026-05-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 559,
+      "date": "2026-05-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 560,
+      "date": "2026-05-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 561,
+      "date": "2026-05-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 562,
+      "date": "2026-05-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 563,
+      "date": "2026-05-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 564,
+      "date": "2026-05-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 565,
+      "date": "2026-05-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 566,
+      "date": "2026-05-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 567,
+      "date": "2026-05-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 568,
+      "date": "2026-05-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 569,
+      "date": "2026-05-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 570,
+      "date": "2026-05-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 571,
+      "date": "2026-05-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 572,
+      "date": "2026-05-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 573,
+      "date": "2026-05-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 574,
+      "date": "2026-05-31T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 575,
+      "date": "2026-06-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 576,
+      "date": "2026-06-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 577,
+      "date": "2026-06-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 578,
+      "date": "2026-06-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 579,
+      "date": "2026-06-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 580,
+      "date": "2026-06-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 581,
+      "date": "2026-06-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 582,
+      "date": "2026-06-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 583,
+      "date": "2026-06-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 584,
+      "date": "2026-06-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 585,
+      "date": "2026-06-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 586,
+      "date": "2026-06-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 587,
+      "date": "2026-06-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 588,
+      "date": "2026-06-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 589,
+      "date": "2026-06-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 590,
+      "date": "2026-06-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 591,
+      "date": "2026-06-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 592,
+      "date": "2026-06-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 593,
+      "date": "2026-06-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 594,
+      "date": "2026-06-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 595,
+      "date": "2026-06-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 596,
+      "date": "2026-06-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 597,
+      "date": "2026-06-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 598,
+      "date": "2026-06-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 599,
+      "date": "2026-06-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 600,
+      "date": "2026-06-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 601,
+      "date": "2026-06-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 602,
+      "date": "2026-06-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 603,
+      "date": "2026-06-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 604,
+      "date": "2026-06-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 605,
+      "date": "2026-07-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 606,
+      "date": "2026-07-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 607,
+      "date": "2026-07-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 608,
+      "date": "2026-07-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 609,
+      "date": "2026-07-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 610,
+      "date": "2026-07-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 611,
+      "date": "2026-07-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 612,
+      "date": "2026-07-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 613,
+      "date": "2026-07-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 614,
+      "date": "2026-07-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 615,
+      "date": "2026-07-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 616,
+      "date": "2026-07-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 617,
+      "date": "2026-07-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 618,
+      "date": "2026-07-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 619,
+      "date": "2026-07-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 620,
+      "date": "2026-07-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 621,
+      "date": "2026-07-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 622,
+      "date": "2026-07-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 623,
+      "date": "2026-07-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 624,
+      "date": "2026-07-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 625,
+      "date": "2026-07-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 626,
+      "date": "2026-07-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 627,
+      "date": "2026-07-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 628,
+      "date": "2026-07-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 629,
+      "date": "2026-07-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 630,
+      "date": "2026-07-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 631,
+      "date": "2026-07-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 632,
+      "date": "2026-07-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 633,
+      "date": "2026-07-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 634,
+      "date": "2026-07-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 635,
+      "date": "2026-07-31T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 636,
+      "date": "2026-08-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 637,
+      "date": "2026-08-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 638,
+      "date": "2026-08-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 639,
+      "date": "2026-08-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 640,
+      "date": "2026-08-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 641,
+      "date": "2026-08-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 642,
+      "date": "2026-08-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 643,
+      "date": "2026-08-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 644,
+      "date": "2026-08-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 645,
+      "date": "2026-08-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 646,
+      "date": "2026-08-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 647,
+      "date": "2026-08-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 648,
+      "date": "2026-08-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 649,
+      "date": "2026-08-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 650,
+      "date": "2026-08-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 651,
+      "date": "2026-08-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 652,
+      "date": "2026-08-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 653,
+      "date": "2026-08-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 654,
+      "date": "2026-08-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 655,
+      "date": "2026-08-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 656,
+      "date": "2026-08-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 657,
+      "date": "2026-08-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 658,
+      "date": "2026-08-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 659,
+      "date": "2026-08-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 660,
+      "date": "2026-08-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 661,
+      "date": "2026-08-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 662,
+      "date": "2026-08-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 663,
+      "date": "2026-08-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 664,
+      "date": "2026-08-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 665,
+      "date": "2026-08-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 666,
+      "date": "2026-08-31T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 667,
+      "date": "2026-09-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 668,
+      "date": "2026-09-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 669,
+      "date": "2026-09-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 670,
+      "date": "2026-09-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 671,
+      "date": "2026-09-05T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 672,
+      "date": "2026-09-06T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 673,
+      "date": "2026-09-07T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 674,
+      "date": "2026-09-08T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 675,
+      "date": "2026-09-09T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 676,
+      "date": "2026-09-10T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 677,
+      "date": "2026-09-11T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 678,
+      "date": "2026-09-12T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 679,
+      "date": "2026-09-13T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 680,
+      "date": "2026-09-14T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 681,
+      "date": "2026-09-15T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 682,
+      "date": "2026-09-16T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 683,
+      "date": "2026-09-17T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 684,
+      "date": "2026-09-18T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 685,
+      "date": "2026-09-19T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 686,
+      "date": "2026-09-20T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 687,
+      "date": "2026-09-21T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 688,
+      "date": "2026-09-22T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 689,
+      "date": "2026-09-23T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 690,
+      "date": "2026-09-24T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 691,
+      "date": "2026-09-25T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 692,
+      "date": "2026-09-26T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 693,
+      "date": "2026-09-27T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 694,
+      "date": "2026-09-28T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 695,
+      "date": "2026-09-29T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 696,
+      "date": "2026-09-30T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 697,
+      "date": "2026-10-01T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 698,
+      "date": "2026-10-02T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 699,
+      "date": "2026-10-03T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    },
+    {
+      "index": 700,
+      "date": "2026-10-04T23:00:00.000Z",
+      "mortality": 0,
+      "cartons": 0,
+      "weight": 0,
+      "chickenWeight": 0,
+      "water": 0,
+      "notes": ""
+    }
+  ]
+}

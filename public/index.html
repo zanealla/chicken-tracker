@@ -1,0 +1,4327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Chicken Performance Tracker — 100 Weeks (Virtualized)</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    padding:18px;min-height:100vh;color:#222;
+  }
+  .container{
+    max-width:1750px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 18px 50px rgba(0,0,0,0.25);
+  }
+  .header{
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    padding:20px 28px;color:#fff;
+  }
+  .header h1{font-size:1.6rem;margin-bottom:6px}
+  .content{padding:18px}
+  .settings{
+    background:#f6f8fb;padding:12px 14px;border-radius:10px;margin-bottom:12px;
+    display:flex;gap:10px;flex-wrap:wrap;align-items:end;
+  }
+  .form-group{display:flex;flex-direction:column;min-width:160px}
+  .form-group label{font-weight:700;margin-bottom:6px;color:#444;font-size:0.9rem}
+  input[type="number"], input[type="date"], select, input[type="text"]{
+    padding:8px;border:2px solid #667eea;border-radius:8px;font-weight:700
+  }
+  .btn{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border:none;color:#fff;padding:8px 14px;border-radius:8px;font-weight:800;cursor:pointer}
+  .btn:disabled{opacity:0.6;cursor:not-allowed}
+  .btn.edit-active{background:linear-gradient(135deg,#4CAF50 0%,#45a049 100%);}
+  .btn.export{background:linear-gradient(135deg,#FF9800 0%,#F57C00 100%);}
+  .btn.print{background:linear-gradient(135deg,#9C27B0 0%,#7B1FA2 100%);}
+  .btn.word{background:linear-gradient(135deg,#2B579A 0%,#1E4A86 100%);}
+  .btn.json{background:linear-gradient(135deg,#28a745 0%,#20c997 100%);}
+  .stats{display:flex;gap:12px;margin:12px 0;flex-wrap:wrap}
+  .stat-card{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:10px;border-radius:8px;min-width:140px;text-align:center}
+  .stat-card .value{font-size:1.3rem;font-weight:900}
+  .table-frame{
+    border-radius:10px;overflow:auto;max-height:62vh;border:1px solid #e6e9ef;
+    position:relative;background:#fff;margin-top:8px;
+  }
+  .table-head{
+    display:grid;grid-template-columns:70px 50px 140px 120px 80px 120px 120px 120px 120px 120px 120px 120px 120px;
+    gap:6px;padding:10px 6px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;position:sticky;top:0;z-index:10;
+    font-weight:800;font-size:0.85rem;
+  }
+  .table-row{
+    display:grid;grid-template-columns:70px 50px 140px 120px 80px 120px 120px 120px 120px 120px 120px 120px 120px;
+    gap:6px;padding:8px 6px;border-bottom:1px solid #eef1f6;align-items:center;
+    background:#fff;
+  }
+  .table-row.week-end{background:#e7f0ff;border-bottom:3px solid #667eea;font-weight:800}
+  .cell{padding:6px;text-align:center;font-size:0.85rem}
+  .cell .input{width:100%;padding:6px;border:1px solid #dfe6f0;border-radius:6px;text-align:center;font-weight:700}
+  .cell.readonly{background:#f1f7ff;font-weight:800;color:#2a2a72;border-radius:6px;padding:6px}
+  .cell.small{font-size:0.8rem}
+  .cell.notes{min-width:120px}
+  .status-message{background:#e7f0ff;padding:8px 12px;border-radius:6px;margin:8px 0;font-weight:700;color:#2a2a72}
+  .export-options{background:#f9f9f9;padding:12px;border-radius:8px;margin:12px 0;border:1px solid #e0e0e0}
+  .export-options h3{margin-bottom:10px;color:#333}
+  .export-form-group{display:flex;flex-direction:column;min-width:250px}
+  .export-form-group label{font-weight:700;margin-bottom:6px;color:#444;font-size:0.9rem}
+  
+  /* Enhanced Dropdown Styles */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .dropdown-header {
+    padding: 10px 12px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    background: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown-header:hover {
+    border-color: #5a6fd8;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    z-index: 1000;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+  }
+  
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-option {
+    padding: 10px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+  }
+  
+  .dropdown-option:hover {
+    background-color: #e7f0ff;
+  }
+  
+  .dropdown-option input {
+    margin-right: 10px;
+    transform: scale(1.1);
+  }
+  
+  .dropdown-actions {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .dropdown-actions .btn {
+    flex: 1;
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+  
+  .arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .dropdown.active .arrow {
+    transform: rotate(180deg);
+  }
+  
+  /* Tabs */
+  .tabs {
+    display: flex;
+    margin: 20px 0 10px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 8px 8px 0 0;
+    margin-right: 5px;
+    background: #f0f0f0;
+    transition: all 0.3s;
+  }
+  
+  .tab.active {
+    background: #667eea;
+    color: white;
+  }
+  
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  /* Enhanced Chart Section */
+  .chart-section {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .chart-section h3 {
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .chart-container {
+    margin: 15px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    position: relative;
+    height: 500px;
+    width: 850px;
+  }
+  
+  /* A4 Portrait Chart Dimensions */
+  .chart-a4 {
+    width: 210mm;
+    height: 297mm;
+    padding: 15mm;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .chart-a4 canvas {
+    width: 180mm !important;
+    height: 267mm !important;
+  }
+  
+  /* A4 Landscape Chart Dimensions */
+  .chart-a4-landscape {
+    width: 297mm;
+    height: 210mm;
+    padding: 15mm;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .chart-a4-landscape canvas {
+    width: 267mm !important;
+    height: 180mm !important;
+  }
+  
+  .chart-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .chart-presets {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .chart-preset-btn {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+  }
+  
+  .chart-preset-btn:hover {
+    background: #e0e0e0;
+  }
+  
+  .chart-preset-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+  }
+  
+  .orientation-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+  
+  .orientation-btn {
+    background: #f0f0f0;
+    border: 2px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  
+  .orientation-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+  }
+  
+  .spacer{width:1px;opacity:0}
+  
+  @media (max-width:1400px){
+    .table-head,.table-row{grid-template-columns:60px 40px 120px 100px 70px 100px 100px 100px 100px 100px 100px 100px 100px}
+  }
+  
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+    .tab-content.active, .tab-content.active * {
+      visibility: visible;
+    }
+    .tab-content.active {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    .btn, .tabs, .settings, .export-options, .stats {
+      display: none !important;
+    }
+    .chart-a4, .chart-a4-landscape {
+      box-shadow: none;
+      margin: 0;
+      padding: 15mm;
+      page-break-after: always;
+    }
+    .chart-a4 {
+      width: 210mm;
+      height: 297mm;
+    }
+    .chart-a4-landscape {
+      width: 297mm;
+      height: 210mm;
+    }
+  }
+  
+  /* Export Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  /* JSON Import/Export Section */
+  .json-section {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .json-section h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .json-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .file-input-wrapper input[type=file] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .json-preview {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.8rem;
+    white-space: pre-wrap;
+  }
+</style>
+<script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🐔 Chicken Performance Tracker — 100 Weeks (Virtualized)</h1>
+      <div style="opacity:0.9;font-size:0.9rem">Start date defines day 01. Table contains 700 days (100 weeks). Virtualized scroll — fast rendering.</div>
+    </div>
+
+    <div class="content">
+    
+
+      <div class="json-section">
+        <h3>🔄 Data Exchange (JSON & CSV)</h3>
+        <div class="json-actions">
+          <button class="btn json" onclick="exportJSON()">Export JSON</button>
+          <div class="file-input-wrapper">
+            <button class="btn json">Import JSON</button>
+            <input type="file" id="jsonFileInput" accept=".json" onchange="importJSON(event)">
+          </div>
+          <button class="btn json" onclick="exportCSV()">Export CSV</button>
+          <div class="file-input-wrapper">
+            <button class="btn json">Import CSV</button>
+            <input type="file" id="csvFileInput" accept=".csv" onchange="importCSV(event)">
+          </div>
+          <button class="btn json" onclick="downloadCSVTemplate()">Download CSV Template</button>
+          <button class="btn json" onclick="showJSONPreview()">Preview JSON</button>
+          <button class="btn json" onclick="showCSVPreview()">Preview CSV</button>
+          <button class="btn json" onclick="clearAllData()">Clear All Data</button>
+        </div>
+        <div id="jsonPreview" class="json-preview" style="display:none"></div>
+        <div id="csvPreview" class="json-preview" style="display:none"></div>
+      </div>
+
+      <div class="export-options">
+        <h3>📊 Enhanced Monthly Export Options</h3>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <div class="export-form-group">
+            <label>Select months to export:</label>
+            <div class="dropdown" id="monthDropdown">
+              <div class="dropdown-header" onclick="toggleDropdown()">
+                <span id="dropdownHeaderText">Select Months</span>
+                <span class="arrow">▼</span>
+              </div>
+              <div id="dropdownContent" class="dropdown-content">
+                <div class="dropdown-actions">
+                  <button class="btn" onclick="selectAllMonths()" style="font-size: 0.75rem; padding: 4px 8px;">Select All</button>
+                  <button class="btn" onclick="deselectAllMonths()" style="font-size: 0.75rem; padding: 4px 8px;">Clear All</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="export-form-group">
+            <label>Export Format:</label>
+            <select id="exportFormat" style="padding: 10px;">
+              <option value="pdf">PDF Document</option>
+              <option value="excel">Excel Spreadsheet</option>
+              <option value="word">Word Document</option>
+              <option value="csv">CSV File</option>
+            </select>
+          </div>
+          
+          <div class="export-form-group">
+            <label>Chart Quality:</label>
+            <select id="chartQuality" style="padding: 10px;">
+              <option value="standard">Standard (72 DPI)</option>
+              <option value="high">High (150 DPI)</option>
+              <option value="print">Print Quality (300 DPI)</option>
+            </select>
+          </div>
+        </div>
+        
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn export" onclick="exportSelectedMonths()">Export Selected Months</button>
+          <button class="btn word" onclick="exportToWord()">Export to Word</button>
+          <button class="btn print" onclick="printSelectedMonths()">Print Selected Months</button>
+          <button class="btn" onclick="showExportPreview()">Preview Export</button>
+        </div>
+        
+        <div style="margin-top:8px;font-size:0.85rem;color:#666">
+          <strong>Quick Tips:</strong> Click dropdown to select months. Use Select All/Clear All for batch operations.
+        </div>
+      </div>
+  <div class="settings">
+  <div class="form-group">
+  <label>Production Management</label>
+  <div style="display: flex; gap: 8px; margin-top: 5px;">
+    <select id="productionSelect" style="flex: 1; padding: 8px; border: 2px solid #667eea; border-radius: 8px; font-weight: 700;">
+      <option value="">Select Production</option>
+    </select>
+    <button class="btn" onclick="createNewProduction()" style="white-space: nowrap;">New</button>
+  </div>
+</div>
+
+<div id="productionModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Create New Production</h3>
+      <button class="close-modal" onclick="closeProductionModal()">&times;</button>
+    </div>
+    <div style="padding: 15px 0;">
+      <div class="form-group">
+        <label>Production ID (Unique)</label>
+        <input type="text" id="newProductionId" placeholder="e.g., farm_spring_2024" style="padding: 10px; border: 2px solid #667eea; border-radius: 8px; font-weight: 700;">
+      </div>
+      <div class="form-group">
+        <label>Production Name</label>
+        <input type="text" id="newProductionName" placeholder="e.g., Spring 2024 Flock" style="padding: 10px; border: 2px solid #667eea; border-radius: 8px; font-weight: 700;">
+      </div>
+    </div>
+    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+      <button class="btn" onclick="confirmCreateProduction()">Create</button>
+      <button class="btn" onclick="closeProductionModal()" style="background: #666;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+        <div class="form-group">
+          <label>Start Date (Day 01)</label>
+          <input id="startDate" type="date">
+        </div>
+        <div class="form-group">
+          <label>Total Chickens (start)</label>
+          <input id="totalChickens" type="number" min="1" value="3333">
+        </div>
+        <div class="form-group">
+          <label>Week Starts With</label>
+          <select id="weekStartDay">
+            <option value="0">Monday (Lu)</option>
+            <option value="1">Tuesday (Ma)</option>
+            <option value="2">Wednesday (Me)</option>
+            <option value="3">Thursday (Je)</option>
+            <option value="4">Friday (Ve)</option>
+            <option value="5">Saturday (Sm)</option>
+            <option value="6">Sunday (Di)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Weeks (1..100)</label>
+          <input id="weeksCount" type="number" min="1" max="100" value="100">
+        </div>
+
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn" onclick="regenerate()">Generate</button>
+          <button id="toggleEditBtn" class="btn" onclick="toggleEditMode()">Edit</button>
+        </div>
+
+        <div style="display:flex;gap:8px">
+          <button class="btn" onclick="saveData()">Save</button>
+          <button class="btn" onclick="loadData()">Load</button>
+          <button class="btn" onclick="exportCSV()">Export CSV</button>
+        </div>
+<div id="productionActions" style="display: flex; gap: 8px; margin-top: 8px;">
+  <button class="btn" onclick="refreshProductions()" style="background: #666; font-size: 0.8rem;">Refresh</button>
+  <button class="btn" onclick="deleteCurrentProduction()" style="background: #dc3545; font-size: 0.8rem;">Delete Current</button>
+  <button class="btn" onclick="exportProductionData()" style="background: #28a745; font-size: 0.8rem;">Export</button>
+</div>
+      </div>
+      <div id="statusMessage" class="status-message" style="display:none"></div>
+
+      <div class="stats">
+        <div class="stat-card"><div style="font-weight:700">Starting Chickens</div><div class="value" id="statStart">3333</div></div>
+        <div class="stat-card"><div style="font-weight:700">Ending Chickens</div><div class="value" id="statEnd">3333</div></div>
+        <div class="stat-card"><div style="font-weight:700">Total Mortality</div><div class="value" id="statMort">0</div></div>
+        <div class="stat-card"><div style="font-weight:700">Total Cartons</div><div class="value" id="statEggs">0</div></div>
+        <div class="stat-card"><div style="font-weight:700">Total Water (L)</div><div class="value" id="statWater">0</div></div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" data-tab="table">Performance Table</div>
+        <div class="tab" data-tab="charts">Performance Charts</div>
+        <div class="tab" data-tab="a4-charts">A4 Format Charts</div>
+      </div>
+
+      <div id="table-tab" class="tab-content active">
+        <div id="tableFrame" class="table-frame" tabindex="0" aria-label="Performance table (virtualized)">
+          <div class="table-head" aria-hidden="true">
+            <div class="cell">Week</div>
+            <div class="cell">#</div>
+            <div class="cell">Date</div>
+            <div class="cell">Day of Week</div>
+            <div class="cell">Mortality</div>
+            <div class="cell">Week Mortality</div>
+            <div class="cell">Cartons Per Day</div>
+            <div class="cell">Production % Per Day</div>
+            <div class="cell">Production % Per Week</div>
+            <div class="cell">Egg Weight (g)</div>
+            <div class="cell">Chicken Weight (g)</div>
+            <div class="cell">Water (L)</div>
+            <div class="cell">Notes</div>
+          </div>
+          <div id="virtualContent" style="position:relative;">
+            <div id="spacer" style="height:0px"></div>
+            <div id="visibleRows" style="position:absolute;left:0;right:0;top:0"></div>
+          </div>
+        </div>
+        <div style="margin-top:10px;color:#444;font-size:0.9rem">Notes: Production % formula = (Cartons × 30 × 100) / ChickensRemaining. "Chickens Remaining" shows count <b>before</b> the day's mortality.</div>
+      </div>
+
+      <div id="charts-tab" class="tab-content">
+        <div class="chart-section">
+          <h3>📈 Weekly Performance Overview</h3>
+          <div class="chart-container">
+            <canvas id="combinedChart"></canvas>
+          </div>
+          <div class="chart-actions">
+            <button class="btn print" onclick="printChart()">Print Chart</button>
+            <button class="btn export" onclick="exportChartAsImage()">Export Chart as Image</button>
+			<button class="btn" id="toggleReferenceBtn" onclick="toggleReferenceData()">Show Reference Data</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="a4-charts-tab" class="tab-content">
+        <div class="chart-section">
+          <h3>📊 A4 Dimension Charts - Print Ready (Zero values hidden)</h3>
+          
+          <div class="orientation-toggle">
+            <button class="orientation-btn active" onclick="switchA4Orientation('portrait')">Portrait</button>
+            <button class="orientation-btn" onclick="switchA4Orientation('landscape')">Landscape</button>
+          </div>
+          
+          <div class="chart-presets">
+            <button class="chart-preset-btn active" onclick="switchA4Chart('performance')">Performance Overview</button>
+            <button class="chart-preset-btn" onclick="switchA4Chart('mortality')">Mortality Analysis</button>
+            <button class="chart-preset-btn" onclick="switchA4Chart('production')">Production Trends</button>
+            <button class="chart-preset-btn" onclick="switchA4Chart('weights')">Weight Analysis</button>
+            <button class="chart-preset-btn" onclick="switchA4Chart('comparison')">Comparative Analysis</button>
+          </div>
+          
+          <div id="a4-portrait-container" class="chart-a4">
+            <canvas id="a4Chart"></canvas>
+          </div>
+          
+          <div id="a4-landscape-container" class="chart-a4-landscape" style="display: none;">
+            <canvas id="a4LandscapeChart"></canvas>
+          </div>
+          
+          <div class="chart-actions">
+            <button class="btn print" onclick="printA4Chart()">Print A4 Chart</button>
+            <button class="btn export" onclick="exportA4ChartAsPDF()">Export as PDF</button>
+            <button class="btn export" onclick="exportA4ChartAsImage()">Export as Image</button>
+			<button class="btn" id="toggleA4ReferenceBtn" onclick="toggleReferenceData()">Show Reference Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="exportPreviewModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Export Preview</h3>
+        <button class="close-modal" onclick="closeExportPreview()">&times;</button>
+      </div>
+      <div id="exportPreviewContent">
+        </div>
+    </div>
+  </div>
+
+  <div id="jsonImportModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Import JSON Data</h3>
+        <button class="close-modal" onclick="closeJSONImportModal()">&times;</button>
+      </div>
+      <div id="jsonImportContent">
+        <p>Select import options:</p>
+        <div style="margin: 15px 0;">
+          <label style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="radio" name="importOption" value="replace" checked style="margin-right: 8px;">
+            Replace all current data
+          </label>
+          <label style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="radio" name="importOption" value="merge" style="margin-right: 8px;">
+            Merge with current data (keep both)
+          </label>
+          <label style="display: flex; align-items: center;">
+            <input type="radio" name="importOption" value="settingsOnly" style="margin-right: 8px;">
+            Import settings only
+          </label>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+          <button class="btn json" onclick="confirmJSONImport()">Confirm Import</button>
+          <button class="btn" onclick="closeJSONImportModal()" style="background: #666;">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="csvImportModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Import CSV Data</h3>
+        <button class="close-modal" onclick="closeCSVImportModal()">&times;</button>
+      </div>
+      <div id="csvImportContent">
+        <p>Select import options:</p>
+        <div style="margin: 15px 0;">
+          <label style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="radio" name="csvImportOption" value="replace" checked style="margin-right: 8px;">
+            Replace all current data
+          </label>
+          <label style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="radio" name="csvImportOption" value="merge" style="margin-right: 8px;">
+            Merge with current data (keep both)
+          </label>
+          <label style="display: flex; align-items: center;">
+            <input type="radio" name="csvImportOption" value="dateRange" style="margin-right: 8px;">
+            Import for date range (coming soon)
+          </label>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+          <button class="btn json" onclick="confirmCSVImport()">Confirm Import</button>
+          <button class="btn" onclick="closeCSVImportModal()" style="background: #666;">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+// Reference data storage
+// Reference data storage
+let referenceData = [];
+let showReferenceData = false;
+
+// Load reference data from CSV
+
+function loadReferenceData() {
+  const csvContent = `Week,Production %,Mortality,Chicken Weight (g),Egg Weight (g)
+,,,,
+1,,100,62,
+2,,99.9,123,
+3,,99.8,179,
+4,,99.7,251,
+5,,99.6,349,
+6,,99.5,451,
+7,,99.4,554,
+8,,99.3,646,
+9,,99.2,738,
+10,,99.1,830,
+11,,99,923,
+12,,98.9,1025,
+13,,98.8,1122,
+14,,98.7,1210,
+15,,98.6,1297,
+16,,98.5,1384,
+17,,98.4,1461,
+18,,98.3,1538,
+19,10,98.2,1596,45
+20,45,98.1,1675,47.6
+21,67.6,98,1750,50
+22,81,97.9,1810,51.2
+23,89,97.8,1850,54.1
+24,92.4,97.7,1882,55.8
+25,93.7,97.6,1897,57.2
+26,94.3,97.5,1908,58.4
+27,94.7,97.5,1914,59.2
+28,95.1,97.4,1918,59.9
+29,95.3,97.3,1922,60.5
+30,95.5,97.2,1925,61
+31,95.6,97.1,1928,61.5
+32,95.7,97,1931,61.9
+33,95.7,96.9,1934,62.3
+34,95.7,96.8,1937,62.6
+35,95.6,96.7,1940,62.8
+36,95.5,96.6,1943,63
+37,95.4,96.5,1946,63.2
+38,95.3,96.4,1949,63.4
+39,95.2,96.3,1952,63.5
+40,95,96.2,1955,63.7
+41,94.8,96.1,1958,63.8
+42,94.6,96,1961,63.9
+43,94.4,95.9,1964,64
+44,94.2,95.8,1967,64.1
+45,93.9,95.7,1970,64.2
+46,93.7,95.6,1973,64.3
+47,93.4,95.3,1976,64.4
+48,93.1,95.4,1979,64.5
+49,92.8,95.3,1982,64.6
+50,92.5,95.2,1985,64.7
+51,92.2,95.1,1988,64.8
+52,91.9,95,1991,64.9
+53,91.5,94.9,1994,65
+54,91.2,94.8,1997,65.1
+55,90.8,94.7,1999,65.2
+56,90.4,94.6,2001,65.3
+57,90,94.3,2003,65.3
+58,89.6,94.4,2005,65.4
+59,89.1,94.3,2007,65.5
+60,88.7,94.2,2009,65.6
+61,88.2,94.1,2011,65.7
+62,87.7,94,2013,65.8
+63,87.2,93.9,2015,65.8
+64,86.7,93.8,2017,65.9
+65,86.2,93.7,2019,66
+66,85.7,93.6,2021,66.1
+67,85.1,93.3,2023,66.1
+68,84.6,93.4,2025,66.2
+69,84,93.3,2027,66.3
+70,83.4,93.2,2029,66.4
+71,82.8,93.1,2031,66.4
+72,82.2,93,2033,66.4
+73,81.6,92.9,2035,66.6
+74,80.9,92.8,2037,66.6
+75,80.3,92.7,2039,66.7
+76,79.6,92.6,2041,66.7
+77,78.9,92.3,2043,66.8
+78,78.2,92.4,2045,66.9
+79,77.5,92.3,2048,66.9
+80,76.8,92.2,2050,67
+81,76,92.1,2052,67
+82,75.3,92,2054,67.1
+83,74.5,91.9,2056,67.1
+84,73.7,91.8,2058,67.2
+85,72.9,91.7,2060,67.2
+86,72.1,91.6,2062,67.3
+87,71.3,91.5,2064,67.3
+88,70.4,91.4,2066,67.4
+89,69.6,91.3,2068,67.4
+90,68.7,91.2,2070,67.5
+91,67.8,91.1,2072,67.5
+92,66.9,91,2074,67.5
+93,66,90.9,2076,67.6
+94,65.1,90.8,2078,67.6
+95,64.2,90.7,2080,67.6
+96,63.2,90.6,2082,67.7
+97,62.2,90.5,2084,67.7
+98,61.3,90.4,2086,67.7
+99,60.3,90.3,2088,67.8
+100,59.2,90.2,2090,67.8`;
+
+  const lines = csvContent.split('\n').slice(2); // Skip header lines
+  referenceData = [];
+  
+  lines.forEach(line => {
+    const [week, production, mortality, chickenWeight, eggWeight] = line.split(',');
+    if (week) {
+      referenceData.push({
+        week: parseInt(week),
+        production: parseFloat(production) || null,
+        survival: parseFloat(mortality) || null, // Note: CSV has "Mortality" but it's actually survival percentage
+        chickenWeight: parseFloat(chickenWeight) || null,
+        eggWeight: parseFloat(eggWeight) || null
+      });
+    }
+  });
+  
+  console.log('Reference data loaded:', referenceData);
+}
+
+// Get reference data aligned with current chart weeks
+function getAlignedReferenceData(weeklyData) {
+  const alignedData = {
+    production: [],
+    survival: [],
+    chickenWeight: [],
+    eggWeight: []
+  };
+  
+  weeklyData.forEach((day, index) => {
+    const weekNumber = getWeekNumber(day.index - 1);
+    const refWeek = referenceData[weekNumber - 1]; // -1 because array is 0-indexed
+    
+    if (refWeek) {
+      alignedData.production.push(refWeek.production === null ? null : refWeek.production);
+      alignedData.survival.push(refWeek.survival === null ? null : refWeek.survival);
+      alignedData.chickenWeight.push(refWeek.chickenWeight === null ? null : refWeek.chickenWeight);
+      alignedData.eggWeight.push(refWeek.eggWeight === null ? null : refWeek.eggWeight);
+    } else {
+      alignedData.production.push(null);
+      alignedData.survival.push(null);
+      alignedData.chickenWeight.push(null);
+      alignedData.eggWeight.push(null);
+    }
+  });
+  
+  return alignedData;
+}
+
+// Toggle reference data visibility
+function toggleReferenceData() {
+  showReferenceData = !showReferenceData;
+  const btn = document.getElementById('toggleReferenceBtn');
+  const a4Btn = document.getElementById('toggleA4ReferenceBtn');
+  
+  if (btn) {
+    btn.textContent = showReferenceData ? 'Hide Reference Data' : 'Show Reference Data';
+    btn.classList.toggle('active', showReferenceData);
+  }
+  
+  if (a4Btn) {
+    a4Btn.textContent = showReferenceData ? 'Hide Reference Data' : 'Show Reference Data';
+    a4Btn.classList.toggle('active', showReferenceData);
+  }
+  
+  // Update charts
+  updateChart();
+  updateA4Chart();
+}
+
+// Initialize reference data when the app starts
+loadReferenceData();
+// === Backend integration ===
+const API_BASE = "http://localhost:9000/api";
+const userId = "demo-user";
+
+const rowHeight=46, bufferRows=12, defaultWeeks=100;
+const daysOfWeekLocal=['Lu','Ma','Me','Je','Ve','Sm','Di'];
+let weeksCount=defaultWeeks, totalDays=weeksCount*7, startDate=new Date(), initialChickens=3333, weekStartDayIndex=0;
+let days=[], editMode=false, selectedMonths=[];
+let chart = null, a4Chart = null, a4LandscapeChart = null;
+let currentA4ChartType = 'performance', currentA4Orientation = 'portrait';
+let pendingJSONData = null; // Store JSON data temporarily before import confirmation
+let pendingCSVData = null; // Store CSV data temporarily before import confirmation
+
+const frame=document.getElementById('tableFrame');
+const spacer=document.getElementById('spacer');
+const visibleRows=document.getElementById('visibleRows');
+
+const startDateInput=document.getElementById('startDate');
+const totalChickensInput=document.getElementById('totalChickens');
+const weeksCountInput=document.getElementById('weeksCount');
+const weekStartSelect=document.getElementById('weekStartDay');
+
+const statStart=document.getElementById('statStart');
+const statEnd=document.getElementById('statEnd');
+const statMort=document.getElementById('statMort');
+const statEggs=document.getElementById('statEggs');
+const statWater=document.getElementById('statWater');
+const statusMessage=document.getElementById('statusMessage');
+const dropdownContent=document.getElementById('dropdownContent');
+const dropdownHeaderText=document.getElementById('dropdownHeaderText');
+const monthDropdown = document.getElementById('monthDropdown');
+
+function pad(n){return n<10?'0'+n:''+n;}
+function shortMonth(d){return d.toLocaleString('en-GB',{month:'short'});}
+function formatShort(d){return `${pad(d.getDate())}-${shortMonth(d)}-${(''+d.getFullYear()).slice(-2)}`;}
+function uiWeekStartToJS(uiIndex){const map={0:1,1:2,2:3,3:4,4:5,5:6,6:0}; return map[uiIndex];}
+
+function showStatus(message, isError = false) {
+  statusMessage.textContent = message;
+  statusMessage.style.display = 'block';
+  statusMessage.style.background = isError ? '#ffe7e7' : '#e7f0ff';
+  statusMessage.style.color = isError ? '#a72a2a' : '#2a2a72';
+  
+  setTimeout(() => {
+    statusMessage.style.display = 'none';
+  }, 3000);
+}
+
+// Enhanced Dropdown functionality
+function toggleDropdown() {
+  monthDropdown.classList.toggle('active');
+}
+
+function selectAllMonths() {
+  const checkboxes = dropdownContent.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = true;
+    const monthKey = checkbox.value;
+    if (!selectedMonths.includes(monthKey)) {
+      selectedMonths.push(monthKey);
+    }
+  });
+  updateDropdownHeader();
+}
+
+function deselectAllMonths() {
+  const checkboxes = dropdownContent.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = false;
+  });
+  selectedMonths = [];
+  updateDropdownHeader();
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+  if (!monthDropdown.contains(event.target)) {
+    monthDropdown.classList.remove('active');
+  }
+});
+
+// Tab functionality
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Remove active class from all tabs and contents
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    
+    // Add active class to clicked tab and corresponding content
+    tab.classList.add('active');
+    document.getElementById(`${tab.dataset.tab}-tab`).classList.add('active');
+    
+    // If charts tab is activated, update the chart
+    if (tab.dataset.tab === 'charts') {
+      updateChart();
+    } else if (tab.dataset.tab === 'a4-charts') {
+      updateA4Chart();
+    }
+  });
+});
+
+// Save settings to localStorage
+function saveSettings() {
+  const settings = {
+    startDate: startDateInput.value,
+    totalChickens: totalChickensInput.value,
+    weeksCount: weeksCountInput.value,
+    weekStartDay: weekStartSelect.value
+  };
+  localStorage.setItem('chickenTrackerSettings', JSON.stringify(settings));
+}
+
+// Load settings from localStorage
+function loadSettings() {
+  const saved = localStorage.getItem('chickenTrackerSettings');
+  if (saved) {
+    try {
+      const settings = JSON.parse(saved);
+      startDateInput.value = settings.startDate || startDateInput.value;
+      totalChickensInput.value = settings.totalChickens || totalChickensInput.value;
+      weeksCountInput.value = settings.weeksCount || weeksCountInput.value;
+      weekStartSelect.value = settings.weekStartDay || weekStartSelect.value;
+      return true;
+    } catch(e) {
+      console.error('Error loading settings:', e);
+    }
+  }
+  return false;
+}
+
+// Initialize the application
+(function initApp(){
+  const today = new Date();
+  
+  // Set default values
+  startDateInput.value = today.toISOString().slice(0,10);
+  weekStartSelect.value = '0';
+  totalChickensInput.value = '3333';
+  weeksCountInput.value = String(defaultWeeks);
+  
+  // Try to load saved settings
+  const settingsLoaded = loadSettings();
+  
+  // Build the table
+  buildDaysArray();
+  
+  // Try to load saved data if settings were loaded
+  if (settingsLoaded) {
+    setTimeout(loadData, 100);
+  }
+})();
+
+function buildDaysArray(){
+  // Save settings before building
+  saveSettings();
+  
+  weeksCount=Math.max(1, Math.min(100, parseInt(weeksCountInput.value)||defaultWeeks));
+  totalDays=weeksCount*7;
+  initialChickens=Math.max(0, parseInt(totalChickensInput.value)||0);
+  weekStartDayIndex=parseInt(weekStartSelect.value)||0;
+  const sd=startDateInput.value;
+  startDate=sd?new Date(sd+'T00:00:00'):new Date();
+
+  const old=days;
+  days=new Array(totalDays);
+  for(let i=0;i<totalDays;i++){
+    const d=new Date(startDate); d.setDate(startDate.getDate()+i);
+    const prev=old&&old[i];
+    days[i]={index:i+1,date:d,mortality:prev?Number(prev.mortality||0):0,weekMortality:prev?Number(prev.weekMortality||0):0,
+      cartons:prev?Number(prev.cartons||0):0, prodDay:prev?Number(prev.prodDay||0):0, prodWeek:prev?Number(prev.prodWeek||0):0,
+      weight:prev?Number(prev.weight||0):0, chickenWeight:prev?Number(prev.chickenWeight||0):0, water:prev?Number(prev.water||0):0, notes:prev?(prev.notes||''):''
+    };
+  }
+  recomputeAll();
+  updateMonthSelector();
+  spacer.style.height=(totalDays*rowHeight)+'px';
+  frame.scrollTop=0;
+  renderVisibleRows();
+  updateChart();
+  updateA4Chart();
+  showStatus('Table generated successfully!');
+}
+
+function recomputeAll(){
+  let current=initialChickens, totalMort=0, totalCartons=0, totalWater=0;
+  
+  // First pass: calculate chickens remaining and daily production
+  for(let i=0;i<totalDays;i++){
+    const day=days[i]; 
+    day.chickensRemaining=current;
+    totalMort+=Number(day.mortality||0); 
+    totalCartons+=Number(day.cartons||0);
+    totalWater+=Number(day.water||0);
+    
+    const cr=Number(day.chickensRemaining||0);
+    const cartons=Number(day.cartons||0);
+    day.prodDay=(cr>0)?+((cartons*30*100)/cr).toFixed(2):0;
+    
+    current=Math.max(0,current-Number(day.mortality||0));
+  }
+  
+  // Second pass: calculate weekly statistics
+  for(let i=0;i<totalDays;i++){
+    const day=days[i];
+    if(isWeekEnd(i)){
+      const weekStartIndex = getWeekStartIndex(i);
+      let weekMortality = 0;
+      let prodSum = 0;
+      let weightSum = 0;
+      let chickenWeightSum = 0;
+      let count = 0;
+      
+      for(let j=weekStartIndex; j<=i; j++){
+        weekMortality += Number(days[j].mortality||0);
+        prodSum += Number(days[j].prodDay||0);
+        weightSum += Number(days[j].weight||0);
+        chickenWeightSum += Number(days[j].chickenWeight||0);
+        count++;
+      }
+      
+      day.weekMortality = weekMortality;
+      day.prodWeek = count > 0 ? +(prodSum/count).toFixed(2) : 0;
+      day.avgEggWeight = count > 0 ? +(weightSum/count).toFixed(1) : 0;
+      day.avgChickenWeight = count > 0 ? +(chickenWeightSum/count).toFixed(1) : 0;
+    } else {
+      day.weekMortality = '-';
+      day.prodWeek = '-';
+      day.avgEggWeight = '-';
+      day.avgChickenWeight = '-';
+    }
+  }
+  
+  statStart.textContent=initialChickens.toLocaleString();
+  statMort.textContent=totalMort.toLocaleString();
+  statEggs.textContent=totalCartons.toLocaleString();
+  statWater.textContent=totalWater.toLocaleString();
+  statEnd.textContent=Math.max(0,initialChickens-totalMort).toLocaleString();
+}
+
+function getWeekStartIndex(weekEndIndex) {
+  const jsWeekStart=uiWeekStartToJS(weekStartDayIndex);
+  const weekEndDate = days[weekEndIndex].date;
+  const weekStartDate = new Date(weekEndDate);
+  
+  // Find the start of the week (based on weekStartDayIndex)
+  const dayOfWeek = weekEndDate.getDay();
+  const jsWeekStartDay = uiWeekStartToJS(weekStartDayIndex);
+  const daysToSubtract = (dayOfWeek - jsWeekStartDay + 7) % 7;
+  
+  weekStartDate.setDate(weekEndDate.getDate() - daysToSubtract);
+  
+  // Find the index of the week start date
+  for(let i=0; i<=weekEndIndex; i++) {
+    if(days[i].date.toDateString() === weekStartDate.toDateString()) {
+      return i;
+    }
+  }
+  
+  return Math.max(0, weekEndIndex - 6); // Fallback
+}
+
+function isWeekEnd(index){
+  const jsWeekStart=uiWeekStartToJS(weekStartDayIndex);
+  const d=days[index].date;
+  return ((d.getDay()-jsWeekStart+7)%7)===6 || index===totalDays-1;
+}
+
+// *** NEW FUNCTION ***
+// Checks if the day is the start of a new week block
+function isWeekStart(index) {
+  if (index === 0) return true; // Day 1 is always the start of its block
+  // A new week starts if its week number is different from the previous day's
+  return getWeekNumber(index) !== getWeekNumber(index - 1);
+}
+
+function getWeekNumber(index) {
+  // Calculate week number based on the week start day
+  const jsWeekStart = uiWeekStartToJS(weekStartDayIndex);
+  const startDateCopy = new Date(startDate);
+  
+  // Adjust start date to the beginning of the week
+  const startDayOfWeek = startDateCopy.getDay();
+  const daysToSubtract = (startDayOfWeek - jsWeekStart + 7) % 7;
+  startDateCopy.setDate(startDate.getDate() - daysToSubtract);
+  
+  // Calculate the week number
+  const currentDate = new Date(startDate);
+  currentDate.setDate(startDate.getDate() + index);
+  
+  const diffTime = currentDate - startDateCopy;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const weekNumber = Math.floor(diffDays / 7) + 1;
+  
+  return weekNumber;
+}
+
+function renderVisibleRows(){
+  const scrollTop=frame.scrollTop, viewHeight=frame.clientHeight;
+  const firstVisibleIndex=Math.floor(scrollTop/rowHeight);
+  const visibleCount=Math.ceil(viewHeight/rowHeight);
+  const start=Math.max(0,firstVisibleIndex-bufferRows);
+  const end=Math.min(totalDays-1,firstVisibleIndex+visibleCount+bufferRows);
+  visibleRows.style.transform=`translateY(${start*rowHeight}px)`;
+  const frag=document.createDocumentFragment();
+
+  for(let i=start;i<=end;i++){
+    const day=days[i];
+    const tr=document.createElement('div'); tr.className='table-row'+(isWeekEnd(i)?' week-end':''); tr.dataset.index=i;
+    const localMap={0:6,1:0,2:1,3:2,4:3,5:4,6:5}; const localDow=daysOfWeekLocal[ localMap[day.date.getDay()] ];
+    
+    // Calculate week number
+    const weekNumber = getWeekNumber(i);
+
+    // *** MODIFIED FOR MERGED COLUMNS ***
+    const cells=[
+      // Change 1: "Week" column now checks isWeekStart (your alternative)
+      {text: isWeekStart(i) ? `${weekNumber} w` : '', cls: 'readonly'},
+      {text:day.index},
+      {text:formatShort(day.date)},
+      {text:localDow},
+      {input:{type:'number',min:0,value:day.mortality,onchange:(val)=>{onMortalityChange(i,val)}}},
+      // This column remains on the week-end row
+      {text:isWeekEnd(i) ? day.weekMortality : '', cls:'readonly small'},
+      {input:{type:'number',min:0,value:day.cartons,onchange:(val)=>{onCartonsChange(i,val)}}},
+      {text:day.prodDay,cls:'readonly'},
+      // This column remains on the week-end row
+      {text:isWeekEnd(i) ? day.prodWeek : '', cls:'readonly small'},
+      {input:{type:'number',min:0,step:0.1,value:day.weight,onchange:(val)=>{onWeightChange(i,val)}}},
+      {input:{type:'number',min:0,step:1,value:day.chickenWeight,onchange:(val)=>{onChickenWeightChange(i,val)}}},
+      {input:{type:'number',min:0,step:0.1,value:day.water,onchange:(val)=>{onWaterChange(i,val)}}},
+      {input:{type:'text',value:day.notes,onchange:(val)=>{onNotesChange(i,val)}, cls: 'notes'}}
+    ];
+    // *** END OF MODIFICATION ***
+
+    cells.forEach(c=>{
+      const div=document.createElement('div'); div.className='cell'+(c.cls?' '+c.cls:'');
+      if(c.input){
+        const inp=document.createElement('input'); inp.className='input'; inp.type=c.input.type; 
+        if(c.input.min!==undefined) inp.min=c.input.min;
+        if(c.input.step!==undefined) inp.step=c.input.step; 
+        inp.value=c.input.value;
+        inp.onchange=e=>c.input.onchange(Number(inp.value)||inp.value);
+        inp.disabled=!editMode; 
+        div.appendChild(inp);
+      } else {
+        div.textContent=c.text;
+      }
+      tr.appendChild(div);
+    });
+    frag.appendChild(tr);
+  }
+  visibleRows.innerHTML=''; 
+  visibleRows.appendChild(frag);
+}
+
+function onMortalityChange(i,val){
+  days[i].mortality=Number(val||0); 
+  recomputeAll(); 
+  renderVisibleRows();
+  updateChart();
+  updateA4Chart();
+}
+
+function onCartonsChange(i,val){
+  days[i].cartons=Number(val||0); 
+  recomputeAll(); 
+  renderVisibleRows();
+  updateChart();
+  updateA4Chart();
+}
+
+function onWeightChange(i,val){
+  days[i].weight=Number(val||0); 
+  recomputeAll();
+  renderVisibleRows();
+  updateChart();
+  updateA4Chart();
+}
+
+function onChickenWeightChange(i,val){
+  days[i].chickenWeight=Number(val||0); 
+  recomputeAll();
+  renderVisibleRows();
+  updateChart();
+  updateA4Chart();
+}
+
+function onWaterChange(i,val){
+  days[i].water=Number(val||0); 
+  recomputeAll(); 
+  renderVisibleRows();
+}
+
+function onNotesChange(i,val){
+  days[i].notes=String(val||''); 
+  renderVisibleRows();
+}
+
+frame.addEventListener('scroll',()=>{requestAnimationFrame(renderVisibleRows);});
+
+function toggleEditMode(){
+  editMode=!editMode; 
+  const btn = document.getElementById('toggleEditBtn');
+  btn.textContent=editMode?'View':'Edit'; 
+  btn.classList.toggle('edit-active', editMode);
+  renderVisibleRows();
+}
+
+function getStorageKey(){
+  const sd=startDateInput.value||'nosd'; 
+  return `chickenTracker-100w-${sd}-${weeksCountInput.value}`;
+}
+
+async function saveData() {
+  if (!currentProductionId) {
+    showStatus('Please select a production first', true);
+    return;
+  }
+
+  const data = {
+    productionId: currentProductionId,
+    productionName: document.getElementById('productionSelect').options[document.getElementById('productionSelect').selectedIndex]?.text || 'Unknown',
+    settings: {
+      startDate: startDateInput.value,
+      totalChickens: Number(totalChickensInput.value),
+      weeksCount: Number(weeksCountInput.value),
+      weekStartDay: Number(weekStartSelect.value)
+    },
+    days: days.map(d => ({
+      index: d.index,
+      date: d.date.toISOString(),
+      mortality: d.mortality,
+      cartons: d.cartons,
+      weight: d.weight,
+      chickenWeight: d.chickenWeight,
+      water: d.water,
+      notes: d.notes
+    }))
+  };
+
+  try {
+    const res = await fetch(`${API_BASE}/tracker/save`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (json.success) showStatus('✅ Data saved to production!');
+    else showStatus('❌ Save failed: ' + json.error, true);
+  } catch (err) {
+    showStatus('❌ Server error: ' + err.message, true);
+  }
+}
+
+async function loadData() {
+  try {
+    const res = await fetch(`${API_URL}/load?userId=${userId}&startDate=${startDateInput.value}`);
+    if (!res.ok) throw new Error('No saved data found');
+    const data = await res.json();
+
+    totalChickensInput.value = data.totalChickens;
+    weeksCountInput.value = data.weeksCount;
+    weekStartSelect.value = data.weekStartDay;
+
+    buildDaysArray();
+    for (let i = 0; i < days.length && i < data.days.length; i++) {
+      const d = data.days[i];
+      days[i].mortality = d.mortality;
+      days[i].cartons = d.cartons;
+      days[i].weight = d.weight;
+      days[i].chickenWeight = d.chickenWeight;
+      days[i].water = d.water;
+      days[i].notes = d.notes;
+    }
+
+    recomputeAll();
+    renderVisibleRows();
+    updateChart();
+    showStatus('✅ Data loaded from server!');
+  } catch (err) {
+    showStatus('⚠️ No server data found.', true);
+  }
+}
+
+function exportCSV(){
+  let csv='Week,Index,Date,Day,Mortality,Week Mortality,Cartons,Prod % Day,Prod % Week,Egg Weight (g),Chicken Weight (g),Water (L),Notes\n';
+  for(let d of days){
+    const weekNumber = getWeekNumber(d.index-1);
+    csv+=`${weekNumber} w,${d.index},${formatShort(d.date)},${daysOfWeekLocal[d.date.getDay()]},${d.mortality},${d.weekMortality},${d.cartons},${d.prodDay},${d.prodWeek},${d.weight},${d.chickenWeight},${d.water},"${d.notes.replace(/"/g,'""')}"\n`;
+  }
+  const blob=new Blob([csv],{type:'text/csv'}); 
+  const url=URL.createObjectURL(blob); 
+  const a=document.createElement('a'); 
+  a.href=url; 
+  a.download='chicken_performance.csv'; 
+  a.click(); 
+  URL.revokeObjectURL(url);
+  showStatus('CSV exported successfully!');
+}
+
+function regenerate(){
+  buildDaysArray();
+}
+
+// Enhanced Month Selector with better UX
+function updateMonthSelector() {
+  dropdownContent.innerHTML = '';
+  selectedMonths = [];
+  
+  // Add action buttons
+  const actionsDiv = document.createElement('div');
+  actionsDiv.className = 'dropdown-actions';
+  actionsDiv.innerHTML = `
+    <button class="btn" onclick="selectAllMonths()" style="font-size: 0.75rem; padding: 4px 8px;">Select All</button>
+    <button class="btn" onclick="deselectAllMonths()" style="font-size: 0.75rem; padding: 4px 8px;">Clear All</button>
+  `;
+  dropdownContent.appendChild(actionsDiv);
+  
+  const months = {};
+  days.forEach(day => {
+    const monthYear = `${day.date.getFullYear()}-${pad(day.date.getMonth()+1)}`;
+    const monthName = day.date.toLocaleString('en-GB', { month: 'long', year: 'numeric' });
+    months[monthYear] = monthName;
+  });
+  
+  Object.entries(months).forEach(([key, name]) => {
+    const option = document.createElement('div');
+    option.className = 'dropdown-option';
+    option.dataset.month = key;
+    
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.value = key;
+    checkbox.id = `month-${key}`;
+    
+    const label = document.createElement('label');
+    label.htmlFor = `month-${key}`;
+    label.textContent = name;
+    label.style.marginLeft = '8px';
+    label.style.cursor = 'pointer';
+    label.style.flex = '1';
+    
+    option.appendChild(checkbox);
+    option.appendChild(label);
+    
+    checkbox.onclick = function(e) {
+      e.stopPropagation();
+      if (this.checked) {
+        selectedMonths.push(key);
+      } else {
+        const index = selectedMonths.indexOf(key);
+        if (index > -1) {
+          selectedMonths.splice(index, 1);
+        }
+      }
+      updateDropdownHeader();
+    };
+    
+    dropdownContent.appendChild(option);
+  });
+  
+  updateDropdownHeader();
+}
+
+function updateDropdownHeader() {
+  if (selectedMonths.length === 0) {
+    dropdownHeaderText.textContent = 'Select Months';
+  } else if (selectedMonths.length === 1) {
+    const monthKey = selectedMonths[0];
+    const [year, month] = monthKey.split('-');
+    const date = new Date(year, month-1);
+    dropdownHeaderText.textContent = date.toLocaleString('en-GB', { month: 'long', year: 'numeric' });
+  } else {
+    dropdownHeaderText.textContent = `${selectedMonths.length} months selected`;
+  }
+}
+
+// JSON Export/Import Functions
+function exportJSON() {
+  const data = {
+    // Metadata
+    version: '1.0',
+    exportDate: new Date().toISOString(),
+    appName: 'Chicken Performance Tracker',
+    
+    // Settings
+    settings: {
+      startDate: startDateInput.value,
+      totalChickens: Number(totalChickensInput.value),
+      weeksCount: Number(weeksCountInput.value),
+      weekStartDay: Number(weekStartSelect.value)
+    },
+    
+    // Performance data
+    performanceData: {
+      initialChickens: initialChickens,
+      days: days.map(d => ({
+        index: d.index,
+        date: d.date.toISOString(),
+        mortality: d.mortality,
+        cartons: d.cartons,
+        weight: d.weight,
+        chickenWeight: d.chickenWeight,
+        water: d.water,
+        notes: d.notes
+      }))
+    },
+    
+    // Summary statistics
+    summary: {
+      startingChickens: initialChickens,
+      endingChickens: Math.max(0, initialChickens - days.reduce((sum, day) => sum + Number(day.mortality || 0), 0)),
+      totalMortality: days.reduce((sum, day) => sum + Number(day.mortality || 0), 0),
+      totalCartons: days.reduce((sum, day) => sum + Number(day.cartons || 0), 0),
+      totalWater: days.reduce((sum, day) => sum + Number(day.water || 0), 0)
+    }
+  };
+  
+  const jsonString = JSON.stringify(data, null, 2);
+  const blob = new Blob([jsonString], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `chicken_performance_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showStatus('JSON data exported successfully!');
+}
+
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const jsonData = JSON.parse(e.target.result);
+      
+      // Validate JSON structure
+      if (!jsonData.settings || !jsonData.performanceData) {
+        throw new Error('Invalid JSON format: missing required sections');
+      }
+      
+      // Store the data temporarily and show import options
+      pendingJSONData = jsonData;
+      showJSONImportModal();
+      
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+      showStatus('Error: Invalid JSON file format', true);
+    }
+  };
+  reader.onerror = function() {
+    showStatus('Error reading file', true);
+  };
+  reader.readAsText(file);
+  
+  // Reset the file input
+  event.target.value = '';
+}
+
+function showJSONImportModal() {
+  document.getElementById('jsonImportModal').style.display = 'flex';
+}
+
+function closeJSONImportModal() {
+  document.getElementById('jsonImportModal').style.display = 'none';
+  pendingJSONData = null;
+}
+
+function confirmJSONImport() {
+  if (!pendingJSONData) return;
+  
+  const importOption = document.querySelector('input[name="importOption"]:checked').value;
+  
+  try {
+    switch(importOption) {
+      case 'replace':
+        // Replace all current data with imported data
+        importReplaceData(pendingJSONData);
+        break;
+      case 'merge':
+        // Merge imported data with current data
+        importMergeData(pendingJSONData);
+        break;
+      case 'settingsOnly':
+        // Import only settings
+        importSettingsOnly(pendingJSONData);
+        break;
+    }
+    
+    closeJSONImportModal();
+    showStatus('JSON data imported successfully!');
+    
+  } catch (error) {
+    console.error('Error importing JSON:', error);
+    showStatus('Error importing JSON data', true);
+  }
+}
+
+function importReplaceData(jsonData) {
+  // Update settings
+  if (jsonData.settings.startDate) {
+    startDateInput.value = jsonData.settings.startDate;
+  }
+  if (jsonData.settings.totalChickens) {
+    totalChickensInput.value = jsonData.settings.totalChickens;
+  }
+  if (jsonData.settings.weeksCount) {
+    weeksCountInput.value = jsonData.settings.weeksCount;
+  }
+  if (jsonData.settings.weekStartDay !== undefined) {
+    weekStartSelect.value = jsonData.settings.weekStartDay;
+  }
+  
+  // Save settings
+  saveSettings();
+  
+  // Rebuild the table with new settings
+  buildDaysArray();
+  
+  // Import performance data
+  if (jsonData.performanceData && jsonData.performanceData.days) {
+    const importedDays = jsonData.performanceData.days;
+    
+    for(let i = 0; i < Math.min(days.length, importedDays.length); i++) {
+      const importedDay = importedDays[i];
+      
+      // Only import if the dates match (to prevent data misalignment)
+      const currentDate = days[i].date.toISOString().slice(0,10);
+      const importedDate = new Date(importedDay.date).toISOString().slice(0,10);
+      
+      if (currentDate === importedDate) {
+        days[i].mortality = Number(importedDay.mortality || 0);
+        days[i].cartons = Number(importedDay.cartons || 0);
+        days[i].weight = Number(importedDay.weight || 0);
+        days[i].chickenWeight = Number(importedDay.chickenWeight || 0);
+        days[i].water = Number(importedDay.water || 0);
+        days[i].notes = importedDay.notes || '';
+      }
+    }
+  }
+  
+  recomputeAll();
+  renderVisibleRows();
+  updateChart();
+  updateA4Chart();
+}
+
+function importMergeData(jsonData) {
+  // For merging, we only update days that don't have data yet
+  if (jsonData.performanceData && jsonData.performanceData.days) {
+    const importedDays = jsonData.performanceData.days;
+    
+    for(let i = 0; i < Math.min(days.length, importedDays.length); i++) {
+      const importedDay = importedDays[i];
+      
+      // Only import if the dates match and current day has no data
+      const currentDate = days[i].date.toISOString().slice(0,10);
+      const importedDate = new Date(importedDay.date).toISOString().slice(0,10);
+      
+      if (currentDate === importedDate) {
+        // Only update if current value is 0/empty and imported value has data
+        if (days[i].mortality === 0 && importedDay.mortality > 0) {
+          days[i].mortality = Number(importedDay.mortality);
+        }
+        if (days[i].cartons === 0 && importedDay.cartons > 0) {
+          days[i].cartons = Number(importedDay.cartons);
+        }
+        if (days[i].weight === 0 && importedDay.weight > 0) {
+          days[i].weight = Number(importedDay.weight);
+        }
+        if (days[i].chickenWeight === 0 && importedDay.chickenWeight > 0) {
+          days[i].chickenWeight = Number(importedDay.chickenWeight);
+        }
+        if (days[i].water === 0 && importedDay.water > 0) {
+          days[i].water = Number(importedDay.water);
+        }
+        if (!days[i].notes && importedDay.notes) {
+          days[i].notes = importedDay.notes;
+        }
+      }
+    }
+  }
+  
+  recomputeAll();
+  renderVisibleRows();
+  updateChart();
+  updateA4Chart();
+}
+
+function importSettingsOnly(jsonData) {
+  // Update only settings
+  if (jsonData.settings.startDate) {
+    startDateInput.value = jsonData.settings.startDate;
+  }
+  if (jsonData.settings.totalChickens) {
+    totalChickensInput.value = jsonData.settings.totalChickens;
+  }
+  if (jsonData.settings.weeksCount) {
+    weeksCountInput.value = jsonData.settings.weeksCount;
+  }
+  if (jsonData.settings.weekStartDay !== undefined) {
+    weekStartSelect.value = jsonData.settings.weekStartDay;
+  }
+  
+  // Save settings and rebuild
+  saveSettings();
+  buildDaysArray();
+  showStatus('Settings imported successfully!');
+}
+
+function showJSONPreview() {
+  const previewElement = document.getElementById('jsonPreview');
+  
+  const data = {
+    version: '1.0',
+    exportDate: new Date().toISOString(),
+    settings: {
+      startDate: startDateInput.value,
+      totalChickens: Number(totalChickensInput.value),
+      weeksCount: Number(weeksCountInput.value),
+      weekStartDay: Number(weekStartSelect.value)
+    },
+    summary: {
+      startingChickens: initialChickens,
+      endingChickens: Math.max(0, initialChickens - days.reduce((sum, day) => sum + Number(day.mortality || 0), 0)),
+      totalMortality: days.reduce((sum, day) => sum + Number(day.mortality || 0), 0),
+      totalCartons: days.reduce((sum, day) => sum + Number(day.cartons || 0), 0),
+      totalWater: days.reduce((sum, day) => sum + Number(day.water || 0), 0)
+    },
+    dataPoints: days.length
+  };
+  
+  previewElement.textContent = JSON.stringify(data, null, 2);
+  previewElement.style.display = 'block';
+  
+  // Auto-hide after 10 seconds
+  setTimeout(() => {
+    previewElement.style.display = 'none';
+  }, 10000);
+}
+
+function clearAllData() {
+  if (confirm('Are you sure you want to clear all data? This action cannot be undone.')) {
+    // Reset all day data to zeros/empty
+    days.forEach(day => {
+      day.mortality = 0;
+      day.cartons = 0;
+      day.weight = 0;
+      day.chickenWeight = 0;
+      day.water = 0;
+      day.notes = '';
+    });
+    
+    recomputeAll();
+    renderVisibleRows();
+    updateChart();
+    updateA4Chart();
+    showStatus('All data cleared successfully!');
+  }
+}
+
+// CSV Import/Export Functions
+function downloadCSVTemplate() {
+  const template = `Week,Index,Date,Day,Mortality,Week Mortality,Cartons,Prod % Day,Prod % Week,Egg Weight (g),Chicken Weight (g),Water (L),Notes
+1 w,1,01-Jan-24,Lu,0,-,0,0,-,0,0,0,""
+1 w,2,02-Jan-24,Ma,0,-,0,0,-,0,0,0,""
+1 w,3,03-Jan-24,Me,0,-,0,0,-,0,0,0,""
+1 w,4,04-Jan-24,Je,0,-,0,0,-,0,0,0,""
+1 w,5,05-Jan-24,Ve,0,-,0,0,-,0,0,0,""
+1 w,6,06-Jan-24,Sm,0,-,0,0,-,0,0,0,""
+1 w,7,07-Jan-24,Di,0,0,0,0,0,0,0,0,"End of week 1"`;
+
+  const blob = new Blob([template], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'chicken_performance_template.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  showStatus('CSV template downloaded!');
+}
+
+function importCSV(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const csvText = e.target.result;
+      const csvData = parseCSV(csvText);
+      
+      if (csvData.length > 0) {
+        // Store CSV data temporarily and show import options
+        pendingCSVData = csvData;
+        showCSVImportModal();
+      } else {
+        showStatus('Error: No valid data found in CSV file', true);
+      }
+    } catch (error) {
+      console.error('Error parsing CSV:', error);
+      showStatus('Error: Invalid CSV file format', true);
+    }
+  };
+  reader.onerror = function() {
+    showStatus('Error reading file', true);
+  };
+  reader.readAsText(file);
+  
+  // Reset the file input
+  event.target.value = '';
+}
+
+function parseCSV(csvText) {
+  const lines = csvText.split('\n').filter(line => line.trim() !== '');
+  const result = [];
+  
+  if (lines.length < 2) {
+    throw new Error('CSV file must contain at least a header row and one data row');
+  }
+
+  // Parse header row to detect column order
+  const headers = parseCSVLine(lines[0]);
+  const expectedHeaders = ['Week', 'Index', 'Date', 'Day', 'Mortality', 'Week Mortality', 'Cartons', 'Prod % Day', 'Prod % Week', 'Egg Weight (g)', 'Chicken Weight (g)', 'Water (L)', 'Notes'];
+  
+  // Map header indices
+  const headerMap = {};
+  expectedHeaders.forEach(expectedHeader => {
+    const index = headers.findIndex(header => 
+      header.toLowerCase().includes(expectedHeader.toLowerCase().replace(/[^a-z]/g, ''))
+    );
+    headerMap[expectedHeader] = index;
+  });
+
+  // Process data rows
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+
+    const row = parseCSVLine(line);
+    
+    if (row.length < 5) continue; // Skip invalid rows
+
+    const csvRow = {
+      week: row[headerMap['Week']] || '',
+      index: parseInt(row[headerMap['Index']]) || 0,
+      date: row[headerMap['Date']] || '',
+      day: row[headerMap['Day']] || '',
+      mortality: parseFloat(row[headerMap['Mortality']]) || 0,
+      weekMortality: row[headerMap['Week Mortality']] || '',
+      cartons: parseFloat(row[headerMap['Cartons']]) || 0,
+      prodDay: parseFloat(row[headerMap['Prod % Day']]) || 0,
+      prodWeek: row[headerMap['Prod % Week']] || '',
+      weight: parseFloat(row[headerMap['Egg Weight (g)']]) || 0,
+      chickenWeight: parseFloat(row[headerMap['Chicken Weight (g)']]) || 0,
+      water: parseFloat(row[headerMap['Water (L)']]) || 0,
+      notes: row[headerMap['Notes']] || ''
+    };
+
+    result.push(csvRow);
+  }
+
+  return result;
+}
+
+// Helper function to parse CSV line with quoted fields
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    
+    if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === ',' && !inQuotes) {
+      result.push(current);
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  
+  result.push(current); // Add the last field
+  return result.map(field => field.replace(/^"|"$/g, '').trim());
+}
+
+function showCSVImportModal() {
+  document.getElementById('csvImportModal').style.display = 'flex';
+}
+
+function closeCSVImportModal() {
+  document.getElementById('csvImportModal').style.display = 'none';
+  pendingCSVData = null;
+}
+
+function confirmCSVImport() {
+  if (!pendingCSVData) return;
+  
+  const importOption = document.querySelector('input[name="csvImportOption"]:checked').value;
+  
+  try {
+    switch(importOption) {
+      case 'replace':
+        importCSVReplaceData(pendingCSVData);
+        break;
+      case 'merge':
+        importCSVMergeData(pendingCSVData);
+        break;
+      case 'dateRange':
+        // For now, just merge the data
+        importCSVMergeData(pendingCSVData);
+        break;
+    }
+    
+    closeCSVImportModal();
+    showStatus('CSV data imported successfully!');
+    
+  } catch (error) {
+    console.error('Error importing CSV:', error);
+    showStatus('Error importing CSV data', true);
+  }
+}
+
+function importCSVReplaceData(csvData) {
+  // Clear existing data first
+  days.forEach(day => {
+    day.mortality = 0;
+    day.cartons = 0;
+    day.weight = 0;
+    day.chickenWeight = 0;
+    day.water = 0;
+    day.notes = '';
+  });
+  
+  // Import CSV data
+  importCSVMergeData(csvData);
+}
+
+function importCSVMergeData(csvData) {
+  let importedCount = 0;
+  let skippedCount = 0;
+
+  csvData.forEach(csvRow => {
+    // Try to find matching date using index (more reliable than date parsing)
+    const index = csvRow.index - 1; // Convert to 0-based index
+    
+    if (index >= 0 && index < days.length) {
+      days[index].mortality = csvRow.mortality;
+      days[index].cartons = csvRow.cartons;
+      days[index].weight = csvRow.weight;
+      days[index].chickenWeight = csvRow.chickenWeight;
+      days[index].water = csvRow.water;
+      days[index].notes = csvRow.notes;
+      importedCount++;
+    } else {
+      skippedCount++;
+    }
+  });
+
+  recomputeAll();
+  renderVisibleRows();
+  updateChart();
+  updateA4Chart();
+
+  if (skippedCount > 0) {
+    showStatus(`CSV import completed: ${importedCount} records imported, ${skippedCount} skipped (index mismatch)`);
+  } else {
+    showStatus(`CSV import completed: ${importedCount} records imported`);
+  }
+}
+
+function showCSVPreview() {
+  const previewElement = document.getElementById('csvPreview');
+  const sampleData = days.slice(0, 5); // Show first 5 days as sample
+  
+  let csvContent = 'Week,Index,Date,Day,Mortality,Week Mortality,Cartons,Prod % Day,Prod % Week,Egg Weight (g),Chicken Weight (g),Water (L),Notes\n';
+  
+  sampleData.forEach(day => {
+    const weekNumber = getWeekNumber(day.index-1);
+    csvContent += `${weekNumber} w,${day.index},${formatShort(day.date)},${daysOfWeekLocal[day.date.getDay()]},${day.mortality},${day.weekMortality},${day.cartons},${day.prodDay},${day.prodWeek},${day.weight},${day.chickenWeight},${day.water},"${day.notes.replace(/"/g,'""')}"\n`;
+  });
+  
+  previewElement.textContent = csvContent;
+  previewElement.style.display = 'block';
+  
+  // Auto-hide after 10 seconds
+  setTimeout(() => {
+    previewElement.style.display = 'none';
+  }, 10000);
+}
+
+// FIXED: Create and update combined chart with single line and hover-only points
+// Update the main chart function
+function updateChart() {
+  // Get weekly data (only from week-end rows)
+  const weeklyData = days.filter(day => isWeekEnd(day.index-1));
+  
+  // Calculate accumulated mortality and survival percentage
+  let accumulatedMortality = 0;
+  const survivalData = weeklyData.map(day => {
+    accumulatedMortality += day.weekMortality;
+    const survivalPercentage = 100 - ((accumulatedMortality * 100) / initialChickens);
+    return survivalPercentage <= 0 || survivalPercentage > 100 ? null : +survivalPercentage.toFixed(2);
+  });
+  
+  // Extract data for other charts and replace zeros with null to hide from graph
+  const weekLabels = weeklyData.map(day => `Week ${getWeekNumber(day.index-1)}`);
+  const productionData = weeklyData.map(day => day.prodWeek === 0 ? null : day.prodWeek);
+  const eggWeightData = weeklyData.map(day => day.avgEggWeight === 0 ? null : day.avgEggWeight);
+  const chickenWeightData = weeklyData.map(day => day.avgChickenWeight === 0 ? null : day.avgChickenWeight);
+  
+  // Reference data arrays
+  const referenceProduction = referenceData.map(d => d.production === 0 ? null : d.production);
+  const referenceSurvival = referenceData.map(d => d.survival === 0 ? null : d.survival);
+  const referenceChickenWeight = referenceData.map(d => d.chickenWeight === 0 ? null : d.chickenWeight);
+    const referenceEggWeight = referenceData.map(d => d.eggWeight === 0 ? null : d.eggWeight); // ADD THIS LINE
+  
+  // Destroy existing chart if it exists
+  if (chart) {
+    chart.destroy();
+  }
+
+  // Create datasets array
+  const datasets = [
+    {
+      label: 'Cumulative Survival %',
+      data: survivalData,
+      borderColor: '#4CAF50',
+      backgroundColor: 'rgba(76, 175, 80, 0.1)',
+      borderWidth: 3,
+      fill: false,
+      tension: 0.6,
+      yAxisID: 'y',
+      spanGaps: true,
+      pointRadius: 0,
+      pointHoverRadius: 6,
+      pointBackgroundColor: '#4CAF50',
+      pointBorderColor: '#ffffff',
+      pointBorderWidth: 2,
+      pointHitRadius: 10
+    },
+    {
+      label: 'Production %',
+      data: productionData,
+      borderColor: '#36a2eb',
+      backgroundColor: 'rgba(54, 162, 235, 0.1)',
+      borderWidth: 3,
+      fill: false,
+      tension: 0.6,
+      yAxisID: 'y1',
+      spanGaps: true,
+      pointRadius: 0,
+      pointHoverRadius: 6,
+      pointBackgroundColor: '#36a2eb',
+      pointBorderColor: '#ffffff',
+      pointBorderWidth: 2,
+      pointHitRadius: 10
+    },
+    {
+      label: 'Egg Weight (g)',
+      data: eggWeightData,
+      borderColor: '#4bc0c0',
+      backgroundColor: 'rgba(75, 192, 192, 0.1)',
+      borderWidth: 3,
+      fill: false,
+      tension: 0.6,
+      yAxisID: 'y2',
+      spanGaps: true,
+      pointRadius: 0,
+      pointHoverRadius: 6,
+      pointBackgroundColor: '#4bc0c0',
+      pointBorderColor: '#ffffff',
+      pointBorderWidth: 2,
+      pointHitRadius: 10
+    },
+    {
+      label: 'Chicken Weight (g)',
+      data: chickenWeightData,
+      borderColor: '#ff9f40',
+      backgroundColor: 'rgba(255, 159, 64, 0.1)',
+      borderWidth: 3,
+      fill: false,
+      tension: 0.6,
+      yAxisID: 'y3',
+      spanGaps: true,
+      pointRadius: 0,
+      pointHoverRadius: 6,
+      pointBackgroundColor: '#ff9f40',
+      pointBorderColor: '#ffffff',
+      pointBorderWidth: 2,
+      pointHitRadius: 10
+    }
+  ];
+
+  // Add reference datasets if enabled
+  if (showReferenceData) {
+    datasets.push(
+      {
+        label: 'Reference Survival %',
+        data: referenceSurvival,
+        borderColor: '#4CAF50',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        fill: false,
+        tension: 0.4,
+        yAxisID: 'y',
+        spanGaps: true,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointBackgroundColor: '#4CAF50'
+      },
+      {
+        label: 'Reference Production %',
+        data: referenceProduction,
+        borderColor: '#36a2eb',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        fill: false,
+        tension: 0.4,
+        yAxisID: 'y1',
+        spanGaps: true,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointBackgroundColor: '#36a2eb'
+      },
+	  {
+        label: 'Reference Egg Weight (g)',
+        data: referenceEggWeight,
+        borderColor: '#4bc0c0',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        fill: false,
+        tension: 0.4,
+        yAxisID: 'y2',
+        spanGaps: true,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointBackgroundColor: '#4bc0c0'
+      },
+      {
+        label: 'Reference Chicken Weight (g)',
+        data: referenceChickenWeight,
+        borderColor: '#ff9f40',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        fill: false,
+        tension: 0.4,
+        yAxisID: 'y3',
+        spanGaps: true,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointBackgroundColor: '#ff9f40'
+      }
+    );
+  }
+
+  // Create new combined chart
+  const ctx = document.getElementById('combinedChart').getContext('2d');
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: weekLabels,
+      datasets: datasets
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Weekly Performance Metrics (Zero values hidden)' + (showReferenceData ? ' - With Reference Data' : ''),
+          font: {
+            size: 16,
+            weight: 'bold'
+          }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          titleColor: '#333',
+          bodyColor: '#666',
+          borderColor: '#ddd',
+          borderWidth: 1,
+          cornerRadius: 8,
+          callbacks: {
+            label: function(context) {
+              let label = context.dataset.label || '';
+              if (label) {
+                label += ': ';
+              }
+              if (context.parsed.y !== null) {
+                if (label.includes('Survival') || label.includes('Production')) {
+                  label += context.parsed.y + '%';
+                } else if (label.includes('Weight')) {
+                  label += context.parsed.y + 'g';
+                }
+              } else {
+                label += 'No data';
+              }
+              return label;
+            }
+          }
+        },
+        legend: {
+          labels: {
+            usePointStyle: true,
+            padding: 20,
+            font: {
+              size: 12,
+              weight: 'bold'
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Week',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          },
+          grid: {
+            color: 'rgba(0, 0, 0, 0.05)',
+          }
+        },
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+          title: {
+            display: true,
+            text: 'Cumulative Survival %',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          },
+          grid: {
+            color: 'rgba(0, 0, 0, 0.05)',
+          },
+          ticks: {
+            display: true,
+            callback: function(value) {
+              return value + '%';
+            }
+          },
+          min: 0,
+          max: 100
+        },
+        y1: {
+          type: 'linear',
+          display: true,
+          position: 'right',
+          title: {
+            display: true,
+            text: 'Production %',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          },
+          grid: {
+            drawOnChartArea: false,
+          },
+          ticks: {
+            display: true,
+            callback: function(value) {
+              return value + '%';
+            }
+          },
+          min: 0,
+          max: 100
+        },
+        y2: {
+          type: 'linear',
+          display: true,
+          position: 'right',
+          title: {
+            display: true,
+            text: 'Egg Weight (g)',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          },
+          grid: {
+            drawOnChartArea: false,
+          },
+          ticks: {
+            display: true
+          },
+          min: 30,
+          max: 80
+        },
+        y3: {
+          type: 'linear',
+          display: true,
+          position: 'right',
+          title: {
+            display: true,
+            text: 'Chicken Weight (g)',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          },
+          grid: {
+            drawOnChartArea: false,
+          },
+          ticks: {
+            display: true
+          },
+          min: 0,
+          max: 2200
+        }
+      },
+      elements: {
+        line: {
+          tension: 0.6
+        }
+      },
+      hover: {
+        mode: 'index',
+        intersect: false
+      }
+    }
+  });
+}
+
+// A4 Chart Orientation Toggle
+function switchA4Orientation(orientation) {
+  currentA4Orientation = orientation;
+  
+  // Update active button
+  document.querySelectorAll('.orientation-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.querySelectorAll('.orientation-btn')[orientation === 'portrait' ? 0 : 1].classList.add('active');
+  
+  // Show/hide containers
+  if (orientation === 'portrait') {
+    document.getElementById('a4-portrait-container').style.display = 'block';
+    document.getElementById('a4-landscape-container').style.display = 'none';
+  } else {
+    document.getElementById('a4-portrait-container').style.display = 'none';
+    document.getElementById('a4-landscape-container').style.display = 'block';
+  }
+  
+  updateA4Chart();
+}
+
+// Create A4 dimension chart with curvy lines
+function updateA4Chart() {
+  const weeklyData = days.filter(day => isWeekEnd(day.index-1));
+  const weekLabels = weeklyData.map(day => `Week ${getWeekNumber(day.index-1)}`);
+  
+  // Destroy existing charts if they exist
+  if (a4Chart) {
+    a4Chart.destroy();
+  }
+  if (a4LandscapeChart) {
+    a4LandscapeChart.destroy();
+  }
+  
+  // Create charts based on orientation
+  if (currentA4Orientation === 'portrait') {
+    const ctx = document.getElementById('a4Chart').getContext('2d');
+    let config = getA4ChartConfig(currentA4ChartType, weekLabels, weeklyData, 'portrait');
+    a4Chart = new Chart(ctx, config);
+  } else {
+    const ctx = document.getElementById('a4LandscapeChart').getContext('2d');
+    let config = getA4ChartConfig(currentA4ChartType, weekLabels, weeklyData, 'landscape');
+    a4LandscapeChart = new Chart(ctx, config);
+  }
+}
+
+// Update the A4 chart configuration to properly handle reference data
+function getA4ChartConfig(type, weekLabels, weeklyData, orientation) {
+  const isLandscape = orientation === 'landscape';
+  
+  // Calculate cumulative survival percentage using accumulated mortality from start
+  let accumulatedMortality = 0;
+  const survivalData = weeklyData.map(day => {
+    accumulatedMortality += day.weekMortality;
+    const survivalPercentage = 100 - ((accumulatedMortality * 100) / initialChickens);
+    return survivalPercentage <= 0 || survivalPercentage > 100 ? null : +survivalPercentage.toFixed(2);
+  });
+  
+  const baseConfig = {
+    type: 'line',
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: {
+        padding: {
+          top: isLandscape ? 25 : 20,
+          right: isLandscape ? 30 : 20,
+          bottom: isLandscape ? 35 : 30,
+          left: isLandscape ? 30 : 20
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          font: {
+            size: isLandscape ? 22 : 18,
+            weight: 'bold'
+          },
+          padding: isLandscape ? 25 : 20
+        },
+        legend: {
+          display: true,
+          position: 'top',
+          labels: {
+            font: {
+              size: isLandscape ? 14 : 12,
+              weight: 'bold'
+            },
+            padding: isLandscape ? 20 : 15,
+            usePointStyle: true
+          }
+        },
+        tooltip: {
+          bodyFont: {
+            size: isLandscape ? 13 : 11
+          },
+          titleFont: {
+            size: isLandscape ? 14 : 12,
+            weight: 'bold'
+          },
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          titleColor: '#333',
+          bodyColor: '#666',
+          borderColor: '#ddd',
+          borderWidth: 1,
+          cornerRadius: 8,
+          callbacks: {
+            label: function(context) {
+              let label = context.dataset.label || '';
+              if (label) {
+                label += ': ';
+              }
+              if (context.parsed.y !== null) {
+                if (label.includes('Survival') || label.includes('Production')) {
+                  label += context.parsed.y + '%';
+                } else if (label.includes('Weight')) {
+                  label += context.parsed.y + 'g';
+                }
+              } else {
+                label += 'No data';
+              }
+              return label;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          display: true,
+          title: {
+            display: true,
+            font: {
+              size: isLandscape ? 16 : 14,
+              weight: 'bold'
+            },
+            padding: isLandscape ? 15 : 10
+          },
+          ticks: {
+            font: {
+              size: isLandscape ? 12 : 11
+            },
+            maxRotation: isLandscape ? 0 : 45
+          },
+          grid: {
+            color: 'rgba(0, 0, 0, 0.05)',
+          }
+        },
+        y: {
+          display: true,
+          title: {
+            display: true,
+            font: {
+              size: isLandscape ? 16 : 14,
+              weight: 'bold'
+            },
+            padding: isLandscape ? 15 : 10
+          },
+          ticks: {
+            font: {
+              size: isLandscape ? 12 : 11
+            },
+            display: true,
+            callback: function(value) {
+              if (type === 'performance' || type === 'mortality' || type === 'production') {
+                return value + '%';
+              }
+              return value;
+            }
+          },
+          min: function() {
+            if (type === 'performance' || type === 'mortality' || type === 'production') {
+              return 0;
+            }
+            return undefined;
+          },
+          max: function() {
+            if (type === 'performance' || type === 'mortality' || type === 'production') {
+              return 100;
+            }
+            return undefined;
+          }
+        }
+      },
+      elements: {
+        line: {
+          tension: 0.6
+        },
+        point: {
+          radius: 0, // No visible points by default
+          hoverRadius: isLandscape ? 7 : 6, // Show points only on hover
+          borderWidth: 2
+        }
+      },
+      // Enhanced hover behavior
+      hover: {
+        mode: 'index',
+        intersect: false
+      }
+    }
+  };
+  
+  // Helper function to replace zeros with null
+  const hideZeros = (data) => data.map(value => value === 0 ? null : value);
+  
+  // Common dataset configuration for curvy lines with hover-only points
+  const createCurvyDataset = (label, data, borderColor, backgroundColor) => ({
+    label,
+    data: hideZeros(data),
+    borderColor,
+    backgroundColor,
+    borderWidth: isLandscape ? 4 : 3,
+    fill: type !== 'comparison',
+    tension: 0.6,
+    spanGaps: true,
+    pointRadius: 0, // No visible points
+    pointHoverRadius: isLandscape ? 7 : 6, // Show points only on hover
+    pointBackgroundColor: borderColor,
+    pointBorderColor: '#ffffff',
+    pointBorderWidth: 2,
+    pointHitRadius: 12 // Larger hit area for better hover
+  });
+
+  // Build datasets array conditionally based on showReferenceData
+  let datasets = [];
+
+  switch(type) {
+    case 'performance':
+      datasets = [
+        createCurvyDataset(
+          'Cumulative Survival %',
+          survivalData,
+          '#4CAF50',
+          'rgba(76, 175, 80, 0.1)'
+        ),
+        createCurvyDataset(
+          'Production %',
+          weeklyData.map(day => day.prodWeek),
+          '#36a2eb',
+          'rgba(54, 162, 235, 0.1)'
+        )
+      ];
+
+      // Add reference datasets if enabled
+      if (showReferenceData) {
+        datasets.push(
+          {
+            label: 'Reference Survival %',
+            data: referenceData.map(d => d.survival === 0 ? null : d.survival),
+            borderColor: '#4CAF50',
+            borderWidth: isLandscape ? 3 : 2,
+            borderDash: [5, 5],
+            fill: false,
+            tension: 0.4,
+            spanGaps: true,
+            pointRadius: 0,
+            pointHoverRadius: isLandscape ? 5 : 4,
+            pointBackgroundColor: '#4CAF50'
+          },
+          {
+            label: 'Reference Production %',
+            data: referenceData.map(d => d.production === 0 ? null : d.production),
+            borderColor: '#36a2eb',
+            borderWidth: isLandscape ? 3 : 2,
+            borderDash: [5, 5],
+            fill: false,
+            tension: 0.4,
+            spanGaps: true,
+            pointRadius: 0,
+            pointHoverRadius: isLandscape ? 5 : 4,
+            pointBackgroundColor: '#36a2eb'
+          },
+          {
+            label: 'Reference Egg Weight (g)',
+            data: referenceData.map(d => d.eggWeight === 0 ? null : d.eggWeight),
+            borderColor: '#4bc0c0',
+            borderWidth: isLandscape ? 3 : 2,
+            borderDash: [5, 5],
+            fill: false,
+            tension: 0.4,
+            spanGaps: true,
+            pointRadius: 0,
+            pointHoverRadius: isLandscape ? 5 : 4,
+            pointBackgroundColor: '#4bc0c0',
+            yAxisID: 'y2'
+          }
+        );
+      }
+
+      return {
+        ...baseConfig,
+        data: {
+          labels: weekLabels,
+          datasets: datasets
+        },
+        options: {
+          ...baseConfig.options,
+          plugins: {
+            ...baseConfig.options.plugins,
+            title: {
+              ...baseConfig.options.plugins.title,
+              text: `Weekly Performance Overview - A4 ${isLandscape ? 'Landscape' : 'Portrait'} (Zero values hidden)` + 
+                    (showReferenceData ? ' - With Reference Data' : '')
+            }
+          },
+          scales: {
+            ...baseConfig.options.scales,
+            x: {
+              ...baseConfig.options.scales.x,
+              title: {
+                ...baseConfig.options.scales.x.title,
+                text: 'Week Number'
+              }
+            },
+            y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+              title: {
+                display: true,
+                text: 'Percentage (%)',
+                font: {
+                  size: isLandscape ? 16 : 14,
+                  weight: 'bold'
+                }
+              },
+              min: 0,
+              max: 100,
+              ticks: {
+                callback: function(value) {
+                  return value + '%';
+                }
+              }
+            },
+            y2: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              title: {
+                display: true,
+                text: 'Egg Weight (g)',
+                font: {
+                  size: isLandscape ? 16 : 14,
+                  weight: 'bold'
+                }
+              },
+              grid: {
+                drawOnChartArea: false,
+              },
+              min: 30,
+              max: 80,
+              ticks: {
+                display: true
+              }
+            }
+          }
+        }
+      };
+      
+	  // Add this case to the switch statement in getA4ChartConfig function
+case 'mortality':
+  // Calculate cumulative mortality
+  let cumulativeMortality = 0;
+  const weeklyMortalityData = weeklyData.map(day => {
+    cumulativeMortality += day.weekMortality;
+    return cumulativeMortality;
+  });
+
+  // Calculate weekly mortality rates
+  const weeklyMortalityRate = weeklyData.map(day => day.weekMortality);
+  
+  // Calculate survival percentage (inverse of cumulative mortality)
+  const survivalPercentage = weeklyData.map(day => {
+    const weekIndex = getWeekNumber(day.index-1) - 1;
+    return referenceData[weekIndex] ? referenceData[weekIndex].survival : null;
+  });
+
+  datasets = [
+    createCurvyDataset(
+      'Cumulative Mortality',
+      weeklyMortalityData,
+      '#ff6384',
+      'rgba(255, 99, 132, 0.1)'
+    ),
+    createCurvyDataset(
+      'Weekly Mortality',
+      weeklyMortalityRate,
+      '#ff9f40',
+      'rgba(255, 159, 64, 0.1)'
+    )
+  ];
+
+  // Add reference data if enabled
+  if (showReferenceData) {
+    // Calculate reference cumulative mortality from survival data
+    let refCumulativeMortality = 0;
+    const refMortalityData = referenceData.map(ref => {
+      if (ref.survival !== null) {
+        // Convert survival percentage back to mortality count
+        const mortalityRate = 100 - ref.survival;
+        refCumulativeMortality += (mortalityRate * initialChickens) / 100 / weeksCount;
+        return refCumulativeMortality;
+      }
+      return null;
+    });
+
+    datasets.push(
+      {
+        label: 'Reference Cumulative Mortality',
+        data: refMortalityData,
+        borderColor: '#ff6384',
+        borderWidth: isLandscape ? 3 : 2,
+        borderDash: [5, 5],
+        fill: false,
+        tension: 0.4,
+        spanGaps: true,
+        pointRadius: 0,
+        pointHoverRadius: isLandscape ? 5 : 4,
+        pointBackgroundColor: '#ff6384'
+      },
+      {
+        label: 'Reference Survival %',
+        data: survivalPercentage,
+        borderColor: '#4CAF50',
+        borderWidth: isLandscape ? 3 : 2,
+        borderDash: [5, 5],
+        fill: false,
+        tension: 0.4,
+        spanGaps: true,
+        pointRadius: 0,
+        pointHoverRadius: isLandscape ? 5 : 4,
+        pointBackgroundColor: '#4CAF50',
+        yAxisID: 'y1'
+      }
+    );
+  }
+
+  return {
+    ...baseConfig,
+    data: {
+      labels: weekLabels,
+      datasets: datasets
+    },
+    options: {
+      ...baseConfig.options,
+      plugins: {
+        ...baseConfig.options.plugins,
+        title: {
+          ...baseConfig.options.plugins.title,
+          text: `Mortality Analysis - A4 ${isLandscape ? 'Landscape' : 'Portrait'} (Zero values hidden)` + 
+                (showReferenceData ? ' - With Reference Data' : '')
+        }
+      },
+      scales: {
+        ...baseConfig.options.scales,
+        x: {
+          ...baseConfig.options.scales.x,
+          title: {
+            ...baseConfig.options.scales.x.title,
+            text: 'Week Number'
+          }
+        },
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+          title: {
+            display: true,
+            text: 'Mortality Count',
+            font: {
+              size: isLandscape ? 16 : 14,
+              weight: 'bold'
+            }
+          },
+          min: 0,
+          ticks: {
+            display: true
+          }
+        },
+        y1: {
+          type: 'linear',
+          display: showReferenceData,
+          position: 'right',
+          title: {
+            display: showReferenceData,
+            text: 'Survival %',
+            font: {
+              size: isLandscape ? 16 : 14,
+              weight: 'bold'
+            }
+          },
+          grid: {
+            drawOnChartArea: false,
+          },
+          ticks: {
+            display: showReferenceData,
+            callback: function(value) {
+              return value + '%';
+            }
+          },
+          min: 0,
+          max: 100
+        }
+      }
+    }
+  };
+	  
+    case 'production':
+      datasets = [
+        createCurvyDataset(
+          'Production %',
+          weeklyData.map(day => day.prodWeek),
+          '#4bc0c0',
+          'rgba(75, 192, 192, 0.3)'
+        )
+      ];
+
+      if (showReferenceData) {
+        datasets.push({
+          label: 'Reference Production %',
+          data: referenceData.map(d => d.production === 0 ? null : d.production),
+          borderColor: '#4bc0c0',
+          borderWidth: isLandscape ? 3 : 2,
+          borderDash: [5, 5],
+          fill: false,
+          tension: 0.4,
+          spanGaps: true,
+          pointRadius: 0,
+          pointHoverRadius: isLandscape ? 5 : 4,
+          pointBackgroundColor: '#4bc0c0'
+        });
+      }
+
+      return {
+        ...baseConfig,
+        data: {
+          labels: weekLabels,
+          datasets: datasets
+        },
+        options: {
+          ...baseConfig.options,
+          plugins: {
+            ...baseConfig.options.plugins,
+            title: {
+              ...baseConfig.options.plugins.title,
+              text: `Weekly Production Trends - A4 ${isLandscape ? 'Landscape' : 'Portrait'} (Zero values hidden)` + 
+                    (showReferenceData ? ' - With Reference Data' : '')
+            }
+          },
+          scales: {
+            ...baseConfig.options.scales,
+            x: {
+              ...baseConfig.options.scales.x,
+              title: {
+                ...baseConfig.options.scales.x.title,
+                text: 'Week Number'
+              }
+            },
+            y: {
+              ...baseConfig.options.scales.y,
+              title: {
+                ...baseConfig.options.scales.y.title,
+                text: 'Production Percentage (%)'
+              },
+              min: 0,
+              max: 100
+            }
+          }
+        }
+      };
+      
+    case 'weights':
+      datasets = [
+        createCurvyDataset(
+          'Egg Weight (g)',
+          weeklyData.map(day => day.avgEggWeight),
+          '#ff9f40',
+          'rgba(255, 159, 64, 0.3)'
+        ),
+        createCurvyDataset(
+          'Chicken Weight (g)',
+          weeklyData.map(day => day.avgChickenWeight),
+          '#9966ff',
+          'rgba(153, 102, 255, 0.3)'
+        )
+      ];
+
+      if (showReferenceData) {
+        datasets.push(
+          {
+            label: 'Reference Egg Weight (g)',
+            data: referenceData.map(d => d.eggWeight === 0 ? null : d.eggWeight),
+            borderColor: '#ff9f40',
+            borderWidth: isLandscape ? 3 : 2,
+            borderDash: [5, 5],
+            fill: false,
+            tension: 0.4,
+            spanGaps: true,
+            pointRadius: 0,
+            pointHoverRadius: isLandscape ? 5 : 4,
+            pointBackgroundColor: '#ff9f40'
+          },
+          {
+            label: 'Reference Chicken Weight (g)',
+            data: referenceData.map(d => d.chickenWeight === 0 ? null : d.chickenWeight),
+            borderColor: '#9966ff',
+            borderWidth: isLandscape ? 3 : 2,
+            borderDash: [5, 5],
+            fill: false,
+            tension: 0.4,
+            spanGaps: true,
+            pointRadius: 0,
+            pointHoverRadius: isLandscape ? 5 : 4,
+            pointBackgroundColor: '#9966ff'
+          }
+        );
+      }
+
+      return {
+        ...baseConfig,
+        data: {
+          labels: weekLabels,
+          datasets: datasets
+        },
+        options: {
+          ...baseConfig.options,
+          plugins: {
+            ...baseConfig.options.plugins,
+            title: {
+              ...baseConfig.options.plugins.title,
+              text: `Weight Analysis - A4 ${isLandscape ? 'Landscape' : 'Portrait'} (Zero values hidden)` + 
+                    (showReferenceData ? ' - With Reference Data' : '')
+            }
+          },
+          scales: {
+            ...baseConfig.options.scales,
+            x: {
+              ...baseConfig.options.scales.x,
+              title: {
+                ...baseConfig.options.scales.x.title,
+                text: 'Week Number'
+              }
+            },
+            y: {
+              ...baseConfig.options.scales.y,
+              title: {
+                ...baseConfig.options.scales.y.title,
+                text: 'Weight (grams)'
+              },
+              min: function(context) {
+                return 0;
+              },
+              max: function(context) {
+                return 2200;
+              }
+            }
+          }
+        }
+      };
+
+    case 'comparison':
+      datasets = [
+        {
+          ...createCurvyDataset(
+            'Cumulative Survival %',
+            survivalData,
+            '#4CAF50',
+            'rgba(76, 175, 80, 0.2)'
+          ),
+          fill: false,
+          yAxisID: 'y'
+        },
+        {
+          ...createCurvyDataset(
+            'Production %',
+            weeklyData.map(day => day.prodWeek),
+            '#36a2eb',
+            'rgba(54, 162, 235, 0.2)'
+          ),
+          fill: false,
+          yAxisID: 'y1'
+        },
+        {
+          ...createCurvyDataset(
+            'Egg Weight (g)',
+            weeklyData.map(day => day.avgEggWeight),
+            '#4bc0c0',
+            'rgba(75, 192, 192, 0.2)'
+          ),
+          fill: false,
+          yAxisID: 'y2'
+        },
+        {
+          ...createCurvyDataset(
+            'Chicken Weight (g)',
+            weeklyData.map(day => day.avgChickenWeight),
+            '#9966ff',
+            'rgba(153, 102, 255, 0.2)'
+          ),
+          fill: false,
+          yAxisID: 'y3'
+        }
+      ];
+
+      if (showReferenceData) {
+        datasets.push(
+          {
+            label: 'Reference Survival %',
+            data: referenceData.map(d => d.survival === 0 ? null : d.survival),
+            borderColor: '#4CAF50',
+            borderWidth: isLandscape ? 3 : 2,
+            borderDash: [5, 5],
+            fill: false,
+            tension: 0.4,
+            spanGaps: true,
+            pointRadius: 0,
+            pointHoverRadius: isLandscape ? 5 : 4,
+            pointBackgroundColor: '#4CAF50',
+            yAxisID: 'y'
+          },
+          {
+            label: 'Reference Production %',
+            data: referenceData.map(d => d.production === 0 ? null : d.production),
+            borderColor: '#36a2eb',
+            borderWidth: isLandscape ? 3 : 2,
+            borderDash: [5, 5],
+            fill: false,
+            tension: 0.4,
+            spanGaps: true,
+            pointRadius: 0,
+            pointHoverRadius: isLandscape ? 5 : 4,
+            pointBackgroundColor: '#36a2eb',
+            yAxisID: 'y1'
+          },
+          {
+            label: 'Reference Egg Weight (g)',
+            data: referenceData.map(d => d.eggWeight === 0 ? null : d.eggWeight),
+            borderColor: '#4bc0c0',
+            borderWidth: isLandscape ? 3 : 2,
+            borderDash: [5, 5],
+            fill: false,
+            tension: 0.4,
+            spanGaps: true,
+            pointRadius: 0,
+            pointHoverRadius: isLandscape ? 5 : 4,
+            pointBackgroundColor: '#4bc0c0',
+            yAxisID: 'y2'
+          },
+          {
+            label: 'Reference Chicken Weight (g)',
+            data: referenceData.map(d => d.chickenWeight === 0 ? null : d.chickenWeight),
+            borderColor: '#9966ff',
+            borderWidth: isLandscape ? 3 : 2,
+            borderDash: [5, 5],
+            fill: false,
+            tension: 0.4,
+            spanGaps: true,
+            pointRadius: 0,
+            pointHoverRadius: isLandscape ? 5 : 4,
+            pointBackgroundColor: '#9966ff',
+            yAxisID: 'y3'
+          }
+        );
+      }
+
+      return {
+        ...baseConfig,
+        data: {
+          labels: weekLabels,
+          datasets: datasets
+        },
+        options: {
+          ...baseConfig.options,
+          plugins: {
+            ...baseConfig.options.plugins,
+            title: {
+              ...baseConfig.options.plugins.title,
+              text: `Comparative Analysis - A4 ${isLandscape ? 'Landscape' : 'Portrait'} (Zero values hidden)` + 
+                    (showReferenceData ? ' - With Reference Data' : '')
+            }
+          },
+          scales: {
+            x: {
+              ...baseConfig.options.scales.x,
+              title: {
+                ...baseConfig.options.scales.x.title,
+                text: 'Week Number'
+              }
+            },
+            y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+              title: {
+                display: true,
+                text: 'Cumulative Survival %'
+              },
+              ticks: {
+                display: true,
+                callback: function(value) {
+                  return value + '%';
+                }
+              },
+              min: 0,
+              max: 100
+            },
+            y1: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              title: {
+                display: true,
+                text: 'Production %'
+              },
+              grid: {
+                drawOnChartArea: false,
+              },
+              ticks: {
+                display: true,
+                callback: function(value) {
+                  return value + '%';
+                }
+              },
+              min: 0,
+              max: 100
+            },
+            y2: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              title: {
+                display: true,
+                text: 'Egg Weight (g)'
+              },
+              grid: {
+                drawOnChartArea: false,
+              },
+              ticks: {
+                display: true
+              },
+              min: 30,
+              max: 80
+            },
+            y3: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              title: {
+                display: true,
+                text: 'Chicken Weight (g)'
+              },
+              grid: {
+                drawOnChartArea: false,
+              },
+              ticks: {
+                display: true
+              },
+              min: 30,
+              max: 2200
+            }
+          }
+        }
+      };
+  }
+}
+
+function switchA4Chart(type) {
+  currentA4ChartType = type;
+  
+  // Update active button
+  document.querySelectorAll('.chart-preset-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  
+  updateA4Chart();
+}
+
+// Print the chart
+function printChart() {
+  const chartsTab = document.getElementById('charts-tab');
+  const originalDisplay = chartsTab.style.display;
+  
+  // Show the charts tab for printing
+  chartsTab.style.display = 'block';
+  
+  // Print
+  window.print();
+  
+  // Restore original display
+  chartsTab.style.display = originalDisplay;
+}
+
+// Export chart as image
+function exportChartAsImage() {
+  if (chart) {
+    const image = chart.toBase64Image();
+    const link = document.createElement('a');
+    link.download = 'chicken_performance_chart.png';
+    link.href = image;
+    link.click();
+    showStatus('Chart exported as image successfully!');
+  }
+}
+
+// Print A4 chart
+function printA4Chart() {
+  const a4ChartsTab = document.getElementById('a4-charts-tab');
+  const originalDisplay = a4ChartsTab.style.display;
+  
+  // Show the A4 charts tab for printing
+  a4ChartsTab.style.display = 'block';
+  
+  // Print
+  window.print();
+  
+  // Restore original display
+  a4ChartsTab.style.display = originalDisplay;
+}
+
+// Export A4 chart as PDF
+function exportA4ChartAsPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({
+    orientation: currentA4Orientation,
+    unit: 'mm',
+    format: 'a4'
+  });
+  
+  // Add title
+  doc.setFontSize(16);
+  doc.setTextColor(40, 40, 40);
+  doc.text(`Chicken Performance Chart - A4 ${currentA4Orientation.toUpperCase()}`, 105, 20, { align: 'center' });
+  
+  // Add generation date
+  doc.setFontSize(10);
+  doc.setTextColor(100, 100, 100);
+  doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 105, 28, { align: 'center' });
+  
+  // Convert chart to image and add to PDF
+  let image;
+  if (currentA4Orientation === 'portrait' && a4Chart) {
+    image = a4Chart.toBase64Image();
+    doc.addImage(image, 'PNG', 15, 35, 180, 250);
+  } else if (currentA4Orientation === 'landscape' && a4LandscapeChart) {
+    image = a4LandscapeChart.toBase64Image();
+    doc.addImage(image, 'PNG', 15, 35, 267, 140);
+  }
+  
+  // Save the PDF
+  doc.save(`chicken_performance_a4_${currentA4Orientation}_chart.pdf`);
+  showStatus(`A4 ${currentA4Orientation} Chart exported as PDF successfully!`);
+}
+
+// Export A4 chart as image
+function exportA4ChartAsImage() {
+  let image;
+  let filename;
+  
+  if (currentA4Orientation === 'portrait' && a4Chart) {
+    image = a4Chart.toBase64Image();
+    filename = 'chicken_performance_a4_portrait_chart.png';
+  } else if (currentA4Orientation === 'landscape' && a4LandscapeChart) {
+    image = a4LandscapeChart.toBase64Image();
+    filename = 'chicken_performance_a4_landscape_chart.png';
+  }
+  
+  if (image) {
+    const link = document.createElement('a');
+    link.download = filename;
+    link.href = image;
+    link.click();
+    showStatus(`A4 ${currentA4Orientation} Chart exported as image successfully!`);
+  }
+}
+
+// ======================================================================
+// ***** ENHANCED EXPORT FUNCTIONS (REPLACING PLACEHOLDERS) *****
+// ======================================================================
+
+// Enhanced export functions
+function exportSelectedMonths() {
+  if (selectedMonths.length === 0) {
+    showStatus('Please select at least one month to export.', true);
+    return;
+  }
+  
+  const format = document.getElementById('exportFormat').value;
+  
+  switch(format) {
+    case 'pdf':
+      exportSelectedMonthsPDF();
+      break;
+    case 'excel':
+      exportSelectedMonthsExcel();
+      break;
+    case 'word':
+      exportToWord();
+      break;
+    case 'csv':
+      exportSelectedMonthsCSV();
+      break;
+  }
+}
+
+function exportSelectedMonthsCSV() {
+  const filteredDays = days.filter(day => {
+    const monthYear = `${day.date.getFullYear()}-${pad(day.date.getMonth()+1)}`;
+    return selectedMonths.includes(monthYear);
+  });
+  
+  let csv = 'Week,Index,Date,Day,Mortality,Week Mortality,Cartons,Prod % Day,Prod % Week,Egg Weight (g),Chicken Weight (g),Water (L),Notes\n';
+  
+  filteredDays.forEach(day => {
+    const weekNumber = getWeekNumber(day.index-1);
+    csv += `${weekNumber} w,${day.index},${formatShort(day.date)},${daysOfWeekLocal[day.date.getDay()]},${day.mortality},${day.weekMortality},${day.cartons},${day.prodDay},${day.prodWeek},${day.weight},${day.chickenWeight},${day.water},"${day.notes.replace(/"/g,'""')}"\n`;
+  });
+  
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'chicken_performance_selected_months.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  showStatus('Selected months exported as CSV successfully!');
+}
+
+// FIXED: Print Selected Months function
+function printSelectedMonths() {
+  if (selectedMonths.length === 0) {
+    showStatus('Please select at least one month to print.', true);
+    return;
+  }
+  
+  // Create a temporary table with only the selected months
+  const filteredDays = days.filter(day => {
+    const monthYear = `${day.date.getFullYear()}-${pad(day.date.getMonth()+1)}`;
+    return selectedMonths.includes(monthYear);
+  });
+  
+  if (filteredDays.length === 0) {
+    showStatus('No data found for the selected months.', true);
+    return;
+  }
+  
+  // Create printable HTML
+  const printHTML = createPrintableTableHTML(filteredDays);
+  
+  // Open print window
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Chicken Performance Report - Selected Months</title>
+      <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #2B579A; border-bottom: 2px solid #2B579A; padding-bottom: 10px; }
+        h2 { color: #2B579A; margin-top: 20px; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 12px; }
+        th { background: #2B579A; color: white; padding: 8px; text-align: left; border: 1px solid #ddd; }
+        td { border: 1px solid #ddd; padding: 8px; }
+        tr:nth-child(even) { background: #f2f2f2; }
+        .summary { background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .summary-item { margin: 5px 0; }
+        .week-end { background: #e7f0ff !important; font-weight: bold; border-bottom: 2px solid #2B579A; }
+        @media print {
+          body { margin: 0; }
+          table { font-size: 10px; }
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Chicken Performance Report - Selected Months</h1>
+      <p><strong>Generated on:</strong> ${new Date().toLocaleDateString()}</p>
+      <p><strong>Selected Period:</strong> ${getSelectedMonthsNames()}</p>
+      ${printHTML}
+    </body>
+    </html>
+  `);
+  
+  printWindow.document.close();
+  
+  // Wait for content to load before printing
+  setTimeout(() => {
+    printWindow.print();
+    // Optional: close the window after printing
+    // printWindow.close();
+  }, 500);
+}
+
+// Helper function to create printable table HTML
+function createPrintableTableHTML(filteredDays) {
+  // Calculate summary for the filtered days
+  let totalMort = 0, totalCartons = 0, totalWater = 0;
+  let startDayIndex = filteredDays[0].index - 1;
+  let startChickens = days[startDayIndex] ? days[startDayIndex].chickensRemaining : initialChickens;
+  
+  filteredDays.forEach(day => {
+    totalMort += Number(day.mortality || 0);
+    totalCartons += Number(day.cartons || 0);
+    totalWater += Number(day.water || 0);
+  });
+  
+  const endChickens = Math.max(0, startChickens - totalMort);
+  
+  let html = `
+    <div class="summary">
+      <h2>Summary Statistics (for selected period)</h2>
+      <div class="summary-item"><strong>Starting Chickens:</strong> ${startChickens.toLocaleString()}</div>
+      <div class="summary-item"><strong>Ending Chickens:</strong> ${endChickens.toLocaleString()}</div>
+      <div class="summary-item"><strong>Total Mortality:</strong> ${totalMort.toLocaleString()}</div>
+      <div class="summary-item"><strong>Total Cartons:</strong> ${totalCartons.toLocaleString()}</div>
+      <div class="summary-item"><strong>Total Water:</strong> ${totalWater.toLocaleString()}L</div>
+    </div>
+    
+    <h2>Performance Data</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>#</th>
+          <th>Date</th>
+          <th>Day</th>
+          <th>Mortality</th>
+          <th>Week Mortality</th>
+          <th>Cartons</th>
+          <th>Prod % Day</th>
+          <th>Prod % Week</th>
+          <th>Egg Weight (g)</th>
+          <th>Chicken Weight (g)</th>
+          <th>Water (L)</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+  
+  filteredDays.forEach(day => {
+    const weekNumber = getWeekNumber(day.index-1);
+    const isWeekEndRow = isWeekEnd(day.index-1);
+    const isWeekStartRow = isWeekStart(day.index - 1); // Use global index
+    const rowClass = isWeekEndRow ? 'week-end' : '';
+    
+    html += `
+      <tr class="${rowClass}">
+        <td>${isWeekStartRow ? weekNumber + ' w' : ''}</td>
+        <td>${day.index}</td>
+        <td>${formatShort(day.date)}</td>
+        <td>${daysOfWeekLocal[day.date.getDay()]}</td>
+        <td>${day.mortality}</td>
+        <td>${isWeekEndRow ? day.weekMortality : ''}</td>
+        <td>${day.cartons}</td>
+        <td>${day.prodDay}</td>
+        <td>${isWeekEndRow ? day.prodWeek : ''}</td>
+        <td>${day.weight}</td>
+        <td>${day.chickenWeight}</td>
+        <td>${day.water}</td>
+        <td>${day.notes}</td>
+      </tr>
+    `;
+  });
+  
+  html += `
+      </tbody>
+    </table>
+    <p style="margin-top: 20px; font-size: 11px; color: #666;">
+      <strong>Notes:</strong> Production % formula = (Cartons × 30 × 100) / ChickensRemaining. 
+      "Chickens Remaining" shows count <b>before</b> the day's mortality.
+    </p>
+  `;
+  
+  return html;
+}
+
+// Helper function to get selected months names for display
+function getSelectedMonthsNames() {
+  return selectedMonths.map(monthKey => {
+    const [year, month] = monthKey.split('-');
+    const date = new Date(year, month-1);
+    return date.toLocaleString('en-GB', { month: 'long', year: 'numeric' });
+  }).join(', ');
+}
+
+// ======================================================================
+// ***** PDF EXPORT FUNCTION (MODIFIED FOR ROWSPAN & BOLD LINE) *****
+// ======================================================================
+function exportSelectedMonthsPDF() {
+  if (selectedMonths.length === 0) {
+    showStatus('Please select at least one month to export.', true);
+    return;
+  }
+
+  // Filter days for selected months
+  const filteredDays = days.filter(day => {
+    const monthYear = `${day.date.getFullYear()}-${pad(day.date.getMonth()+1)}`;
+    return selectedMonths.includes(monthYear);
+  });
+  
+  if (filteredDays.length === 0) {
+    showStatus('No data found for the selected months.', true);
+    return;
+  }
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ 
+    orientation: 'portrait',
+    unit: 'mm', 
+    format: 'a4' 
+  });
+  const margin = 10;
+  const contentWidth = doc.internal.pageSize.width - (2 * margin);
+  let startY = margin;
+
+  // Selected Months
+  doc.setFontSize(15);
+  doc.setTextColor(100, 100, 100);
+  doc.setFont('helvetica', 'bold'); // Set font to bold
+  doc.text(`Months: ${getSelectedMonthsNames()}`, doc.internal.pageSize.width / 2, startY, { align: 'center' });
+  startY += 5;
+
+  // Recalculate stats for the filtered period
+  let totalMort = 0, totalCartons = 0, totalWater = 0;
+  let startDayIndex = filteredDays[0].index - 1;
+  // Find the chickens remaining at the *start* of the period
+  let startChickens = days[startDayIndex] ? days[startDayIndex].chickensRemaining : initialChickens;
+  let endChickens = startChickens; // Will be calculated
+  
+  filteredDays.forEach(day => {
+    totalMort += day.mortality;
+    totalCartons += day.cartons;
+    totalWater += day.water;
+  });
+  endChickens = Math.max(0, startChickens - totalMort);
+  
+  const stats = [ 
+    { label: 'Start Chickens (Period)', value: startChickens.toLocaleString() },
+    { label: 'Ending Chickens (Period)', value: endChickens.toLocaleString() }, 
+    { label: 'Total Mortality (Period)', value: totalMort.toLocaleString() }, 
+    { label: 'Total Cartons (Period)', value: totalCartons.toLocaleString() }, 
+    { label: 'Total Water (L) (Period)', value: totalWater.toLocaleString() } 
+  ];
+  
+  const cardWidth = 35;
+  const cardHeight = 15;
+  const cardMargin = 2;
+  const pageWidth = doc.internal.pageSize.width;
+  
+  const statStartY = startY + 5;
+  stats.forEach((stat, index) => { 
+    const x = margin + (index * (cardWidth + cardMargin)); 
+    if (x + cardWidth <= pageWidth - margin) { 
+    doc.setFillColor(189, 188, 185); // Restored gray color
+doc.roundedRect(x, statStartY, cardWidth, cardHeight, 3, 3, 'F');
+
+doc.setTextColor(0, 0, 0); // Restored black text
+doc.setFontSize(7);
+doc.setFont('helvetica', 'normal'); 
+doc.text(stat.label, x + cardWidth / 2, statStartY + 5, { align: 'center', maxWidth: cardWidth - 4 });
+
+doc.setFontSize(11);
+doc.setFont('helvetica', 'bold'); 
+// Center the text horizontally within the card
+doc.text(stat.value, x + cardWidth / 2, statStartY + 11, { align: 'center', maxWidth: cardWidth - 4 }); 
+    } 
+  }); 
+
+  startY = statStartY + cardHeight + 10;
+
+  const headers = [
+    'Week', 'Date', 'Day', 'Mortality', 'Week Mort',
+    'Cartons', 'Prod % Day', 'Prod % Week', 
+    'Egg W (g)', 'Water (L)', 'Notes'
+  ];
+  
+  // *** Build table body with rowSpan ***
+  const tableBody = [];
+  const processedDayIndices = new Set(); // To track days already added
+
+  filteredDays.forEach((day, index) => {
+      const globalIndex = day.index - 1;
+      
+      if (processedDayIndices.has(globalIndex)) {
+          return; // Skip if this day was already processed by a rowSpan
+      }
+
+      const weekNumber = getWeekNumber(globalIndex);
+      
+      // Find all days in this week *that are also in the filteredDays array*
+      const weekDaysInFilter = filteredDays.filter(d => 
+          getWeekNumber(d.index - 1) === weekNumber
+      );
+      const weekRowCount = weekDaysInFilter.length;
+
+      // Find the *actual* week-end day from the main `days` array to get the correct weekly total
+      let weekEndDayData = day; // Default to current day
+      let weekStartIndexForLookup = getWeekStartIndex(isWeekEnd(globalIndex) ? globalIndex : globalIndex + 6); // Find start of week
+      
+      for(let i = weekStartIndexForLookup; i < Math.min(weekStartIndexForLookup + 7, days.length); i++) {
+          if (isWeekEnd(i)) {
+              weekEndDayData = days[i]; // Found the official week-end day
+              break;
+          }
+      }
+      // If loop finishes without finding (e.g., last week of data), use last day of that week
+      if (!isWeekEnd(weekEndDayData.index - 1)) {
+          weekEndDayData = days[Math.min(weekStartIndexForLookup + 6, days.length - 1)];
+      }
+
+      // This is the first row of the week. Create the rowSpan cells.
+      const rowData = [
+          { content: `${weekNumber} w`, rowSpan: weekRowCount, styles: { valign: 'middle', halign: 'center' } },
+          formatShort(day.date),
+          daysOfWeekLocal[day.date.getDay()],
+          day.mortality.toString(),
+          { content: weekEndDayData.weekMortality.toString(), rowSpan: weekRowCount, styles: { valign: 'middle', halign: 'center' } },
+          day.cartons.toString(),
+          day.prodDay.toFixed(2),
+          { content: weekEndDayData.prodWeek.toFixed(2), rowSpan: weekRowCount, styles: { valign: 'middle', halign: 'center' } },
+          day.weight > 0 ? day.weight.toString() : '-',
+          day.water.toString(),
+          day.notes || ''
+      ];
+      tableBody.push(rowData);
+      processedDayIndices.add(globalIndex); // Mark this day as processed
+
+      // Add the subsequent rows for this week (which will have fewer columns)
+      for (let i = 1; i < weekRowCount; i++) {
+          const subsequentDay = weekDaysInFilter[i];
+          const subsequentGlobalIndex = subsequentDay.index - 1;
+          
+          const subsequentRowData = [
+              // Col 0 ('Week') is skipped due to rowSpan
+              formatShort(subsequentDay.date),
+              daysOfWeekLocal[subsequentDay.date.getDay()],
+              subsequentDay.mortality.toString(),
+              // Col 4 ('Week Mort') is skipped
+              subsequentDay.cartons.toString(),
+              subsequentDay.prodDay.toFixed(2),
+              // Col 7 ('Prod % Week') is skipped
+              subsequentDay.weight > 0 ? subsequentDay.weight.toString() : '-',
+              subsequentDay.water.toString(),
+              subsequentDay.notes || ''
+          ];
+          tableBody.push(subsequentRowData);
+          processedDayIndices.add(subsequentGlobalIndex); // Mark as processed
+      }
+  });
+
+  // Use jspdf-autotable
+  doc.autoTable({
+    startY: startY,
+    head: [headers],
+    body: tableBody, // *** Use the new tableBody ***
+    theme: 'grid',
+    margin: { left: margin, right: margin },
+    styles: { 
+      fontSize: 10,
+      cellPadding: 1, 
+      textColor: 50,
+      font: 'helvetica',
+	  halign: 'center',
+      valign: 'middle'
+    },
+	columnStyles: {
+      0: { fontStyle: 'bold', textColor: [0, 0, 0], halign: 'center' },
+      1: { fontStyle: 'bold', textColor: [0, 0, 0], halign: 'center' },
+      2: { fontStyle: 'bold', textColor: [0, 0, 0], halign: 'center' },
+      4: { fontStyle: 'bold', textColor: [0, 0, 0], halign: 'center' },
+      7: { fontStyle: 'bold', textColor: [0, 0, 0], halign: 'center' }
+    },
+    headStyles: {
+      fillColor: [189, 188, 185], 
+      textColor: 0,
+      fontStyle: 'bold',
+      halign: 'center',
+      fontSize: 10 
+    },
+    alternateRowStyles: {
+      fillColor: [245, 245, 245]
+    },
+    // ***** FIXED HOOK TO DRAW BOLD LINE *****
+    didDrawRow: function(data) {
+        if (data.section === 'body') {
+            // Get the day object corresponding to this row's index in filteredDays
+            const day = filteredDays[data.row.index];
+            
+            if (day) {
+                const globalIndex = day.index - 1;
+                
+                // Check if this day is the end of a week
+                if (isWeekEnd(globalIndex)) {
+                    const startX = data.table.margins.left;
+                    const endX = doc.internal.pageSize.width - data.table.margins.right;
+                    const y = data.row.y + data.row.height; // Y position at the bottom of the row
+                    
+                    doc.setLineWidth(0.8); // Set BOLD line width
+                    doc.setDrawColor(0, 0, 0); // Set color to black
+                    doc.line(startX, y, endX, y); // Draw the line
+                    
+                    // Reset to default grid settings
+                    doc.setLineWidth(0.1); 
+                    doc.setDrawColor(211, 211, 211); // Reset to light gray for grid
+                }
+            }
+        }
+    }
+    // ***** END OF FIXED HOOK *****
+  });
+
+  // Add footer note
+  const finalY = doc.lastAutoTable.finalY + 10; 
+  if (finalY < doc.internal.pageSize.height - 20) { 
+    doc.setFontSize(8); 
+    doc.setTextColor(100, 100, 100); 
+    doc.setFont('helvetica', 'normal'); 
+    doc.text('Notes: Production % formula = (Cartons × 30 × 100) / ChickensRemaining. "Chicken Remaining" shows count before the day\'s mortality.', margin, finalY, { maxWidth: contentWidth }); 
+  }
+
+  doc.save(`chicken_performance_monthly_${new Date().toISOString().slice(0,10)}.pdf`);
+  showStatus('PDF exported with merged cells and bold week dividers!');
+}
+// ======================================================================
+// ***** END OF MODIFIED FUNCTIONS *****
+// ======================================================================
+
+// Export selected months as Excel
+function exportSelectedMonthsExcel() {
+  if (selectedMonths.length === 0) {
+    showStatus('Please select at least one month to export.', true);
+    return;
+  }
+  
+  // Filter days for selected months
+  const filteredDays = days.filter(day => {
+    const monthYear = `${day.date.getFullYear()}-${pad(day.date.getMonth()+1)}`;
+    return selectedMonths.includes(monthYear);
+  });
+  
+  // Prepare worksheet data
+  const wsData = [
+    ['Week', '#', 'Date', 'Day', 'Mortality', 'Week Mortality', 'Cartons', 'Prod % Day', 'Prod % Week', 'Egg Weight (g)', 'Chicken Weight (g)', 'Water (L)', 'Notes']
+  ];
+  
+  filteredDays.forEach(day => {
+    const weekNumber = getWeekNumber(day.index-1);
+    const isWeekEndRow = isWeekEnd(day.index-1);
+    const isWeekStartRow = isWeekStart(day.index - 1);
+    wsData.push([
+      isWeekStartRow ? `${weekNumber} w` : '', // <-- MODIFIED FOR MERGING
+      day.index,
+      formatShort(day.date),
+      daysOfWeekLocal[day.date.getDay()],
+      day.mortality,
+      isWeekEndRow ? day.weekMortality : '', // <-- MODIFIED FOR MERGING
+      day.cartons,
+      day.prodDay,
+      isWeekEndRow ? day.prodWeek : '', // <-- MODIFIED FOR MERGING
+      day.weight,
+      day.chickenWeight,
+      day.water,
+      day.notes
+    ]);
+  });
+  
+  // Create worksheet and workbook
+  const ws = XLSX.utils.aoa_to_sheet(wsData);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Chicken Performance');
+  
+  // Generate and download Excel file
+  XLSX.writeFile(wb, 'chicken_performance_report.xlsx');
+  showStatus('Excel file exported successfully!');
+}
+
+// Export to Word document
+function exportToWord() {
+  if (selectedMonths.length === 0) {
+    showStatus('Please select at least one month to export.', true);
+    return;
+  }
+  
+  // Filter days for selected months
+  const filteredDays = days.filter(day => {
+    const monthYear = `${day.date.getFullYear()}-${pad(day.date.getMonth()+1)}`;
+    return selectedMonths.includes(monthYear);
+  });
+  
+  // Calculate summary statistics
+  let totalMort = 0, totalCartons = 0, totalWater = 0;
+  let startDayIndex = filteredDays[0].index - 1;
+  let startChickens = days[startDayIndex] ? days[startDayIndex].chickensRemaining : initialChickens;
+  
+  filteredDays.forEach(day => {
+    totalMort += Number(day.mortality || 0);
+    totalCartons += Number(day.cartons || 0);
+    totalWater += Number(day.water || 0);
+  });
+  
+  const endChickens = Math.max(0, startChickens - totalMort);
+  
+  // Create HTML content for Word document
+  const htmlContent = `
+    <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+    <head>
+      <meta charset="utf-8">
+      <title>Chicken Performance Report</title>
+      <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #2B579A; border-bottom: 2px solid #2B579A; padding-bottom: 10px; }
+        h2 { color: #2B579A; margin-top: 20px; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th { background: #2B579A; color: white; padding: 8px; text-align: left; }
+        td { border: 1px solid #ddd; padding: 8px; }
+        tr:nth-child(even) { background: #f2f2f2; }
+        .summary { background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .summary-item { margin: 5px 0; }
+        .week-end { background: #e7f0ff !important; font-weight: bold; }
+      </style>
+    </head>
+    <body>
+      <h1>Chicken Performance Report</h1>
+      <p><strong>Generated on:</strong> ${new Date().toLocaleDateString()}</p>
+      
+      <div class="summary">
+        <h2>Summary Statistics (for selected period)</h2>
+        <div class="summary-item"><strong>Starting Chickens:</strong> ${startChickens.toLocaleString()}</div>
+        <div class="summary-item"><strong>Ending Chickens:</strong> ${endChickens.toLocaleString()}</div>
+        <div class="summary-item"><strong>Total Mortality:</strong> ${totalMort.toLocaleString()}</div>
+        <div class="summary-item"><strong>Total Cartons:</strong> ${totalCartons.toLocaleString()}</div>
+        <div class="summary-item"><strong>Total Water:</strong> ${totalWater.toLocaleString()}L</div>
+      </div>
+      
+      <h2>Performance Data</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>#</th>
+            <th>Date</th>
+            <th>Day</th>
+            <th>Mortality</th>
+            <th>Week Mortality</th>
+            <th>Cartons</th>
+            <th>Prod % Day</th>
+            <th>Prod % Week</th>
+            <th>Egg Weight (g)</th>
+            <th>Chicken Weight (g)</th>
+            <th>Water (L)</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${filteredDays.map(day => {
+            const weekNumber = getWeekNumber(day.index-1);
+            const isWeekEndRow = isWeekEnd(day.index-1);
+            const isWeekStartRow = isWeekStart(day.index - 1);
+            return `
+              <tr class="${isWeekEndRow ? 'week-end' : ''}">
+                <td>${isWeekStartRow ? weekNumber + ' w' : ''}</td>
+                <td>${day.index}</td>
+                <td>${formatShort(day.date)}</td>
+                <td>${daysOfWeekLocal[day.date.getDay()]}</td>
+                <td>${day.mortality}</td>
+                <td>${isWeekEndRow ? day.weekMortality : ''}</td>
+                <td>${day.cartons}</td>
+                <td>${day.prodDay}</td>
+                <td>${isWeekEndRow ? day.prodWeek : ''}</td>
+                <td>${day.weight}</td>
+                <td>${day.chickenWeight}</td>
+                <td>${day.water}</td>
+                <td>${day.notes}</td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    </body>
+    </html>
+  `;
+  
+  // Create Blob and download
+  const blob = new Blob([htmlContent], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'chicken_performance_report.doc';
+  a.click();
+  URL.revokeObjectURL(url);
+  showStatus('Word document exported successfully!');
+}
+
+// Show export preview
+function showExportPreview() {
+  if (selectedMonths.length === 0) {
+    showStatus('Please select at least one month to preview.', true);
+    return;
+  }
+  
+  const modal = document.getElementById('exportPreviewModal');
+  const previewContent = document.getElementById('exportPreviewContent');
+  
+  // Filter days for selected months
+  const filteredDays = days.filter(day => {
+    const monthYear = `${day.date.getFullYear()}-${pad(day.date.getMonth()+1)}`;
+    return selectedMonths.includes(monthYear);
+  });
+  
+  // Calculate summary
+  let totalMort = 0, totalCartons = 0, totalWater = 0;
+  let startDayIndex = filteredDays[0].index - 1;
+  let startChickens = days[startDayIndex] ? days[startDayIndex].chickensRemaining : initialChickens;
+
+  filteredDays.forEach(day => {
+    totalMort += Number(day.mortality || 0);
+    totalCartons += Number(day.cartons || 0);
+    totalWater += Number(day.water || 0);
+  });
+  
+  const endChickens = Math.max(0, startChickens - totalMort);
+  
+  // Create preview content
+  previewContent.innerHTML = `
+    <h4>Export Preview - ${filteredDays.length} days selected</h4>
+    <div style="background: #f5f5ff; padding: 10px; border-radius: 5px; margin: 10px 0;">
+      <strong>Summary (for selected period):</strong><br>
+      • Starting Chickens: ${startChickens.toLocaleString()}<br>
+      • Ending Chickens: ${endChickens.toLocaleString()}<br>
+      • Total Mortality: ${totalMort.toLocaleString()}<br>
+      • Total Cartons: ${totalCartons.toLocaleString()}<br>
+      • Total Water: ${totalWater.toLocaleString()}L
+    </div>
+    <div style="max-height: 300px; overflow-y: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
+        <thead>
+          <tr style="background: #667eea; color: white;">
+            <th style="padding: 5px; border: 1px solid #ddd;">Week</th>
+            <th style="padding: 5px; border: 1px solid #ddd;">Date</th>
+            <th style="padding: 5px; border: 1px solid #ddd;">Mortality</th>
+            <th style="padding: 5px; border: 1px solid #ddd;">Cartons</th>
+            <th style="padding: 5px; border: 1px solid #ddd;">Prod %</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${filteredDays.slice(0, 20).map(day => {
+            const weekNumber = getWeekNumber(day.index-1);
+            const isWeekStartRow = isWeekStart(day.index - 1);
+            return `
+              <tr>
+                <td style="padding: 5px; border: 1px solid #ddd;">${isWeekStartRow ? weekNumber + ' w' : ''}</td>
+                <td style="padding: 5px; border: 1px solid #ddd;">${formatShort(day.date)}</td>
+                <td style="padding: 5px; border: 1px solid #ddd;">${day.mortality}</td>
+                <td style="padding: 5px; border: 1px solid #ddd;">${day.cartons}</td>
+                <td style="padding: 5px; border: 1px solid #ddd;">${day.prodDay}</td>
+              </tr>
+            `;
+          }).join('')}
+          ${filteredDays.length > 20 ? `<tr><td colspan="5" style="padding: 5px; text-align: center; font-style: italic;">... and ${filteredDays.length - 20} more records</td></tr>` : ''}
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top: 15px; text-align: center;">
+      <button class="btn export" onclick="closeExportPreview(); exportSelectedMonths();" style="padding: 8px 16px;">Confirm Export</button>
+      <button class="btn" onclick="closeExportPreview()" style="padding: 8px 16px; background: #666;">Cancel</button>
+    </div>
+  `;
+  
+  modal.style.display = 'flex';
+}
+
+function closeExportPreview() {
+  document.getElementById('exportPreviewModal').style.display = 'none';
+}
+
+// Add event listeners to save settings when they change
+startDateInput.addEventListener('change', saveSettings);
+totalChickensInput.addEventListener('change', saveSettings);
+weeksCountInput.addEventListener('change', saveSettings);
+weekStartSelect.addEventListener('change', saveSettings);
+// Production Management System
+let currentProductionId = null;
+let productions = [];
+
+// Initialize production system
+async function initProductionSystem() {
+    await refreshProductions();
+    
+    // Try to load last used production from localStorage
+    const lastProduction = localStorage.getItem('lastProductionId');
+    if (lastProduction) {
+        document.getElementById('productionSelect').value = lastProduction;
+        await loadProduction(lastProduction);
+    }
+}
+
+// Refresh productions list
+async function refreshProductions() {
+    try {
+        const response = await fetch('http://localhost:9000/api/productions');
+        if (!response.ok) throw new Error('Failed to fetch productions');
+        
+        productions = await response.json();
+        updateProductionDropdown();
+        showStatus(`Loaded ${productions.length} productions`);
+    } catch (error) {
+        console.error('Error refreshing productions:', error);
+        showStatus('Error loading productions', true);
+    }
+}
+
+// Update production dropdown
+function updateProductionDropdown() {
+    const select = document.getElementById('productionSelect');
+    const currentValue = select.value;
+    
+    select.innerHTML = '<option value="">Select Production</option>';
+    
+    productions.forEach(production => {
+        const option = document.createElement('option');
+        option.value = production.id;
+        option.textContent = `${production.name} (${new Date(production.created).toLocaleDateString()})`;
+        select.appendChild(option);
+    });
+    
+    // Restore previous selection if it still exists
+    if (currentValue && productions.find(p => p.id === currentValue)) {
+        select.value = currentValue;
+    }
+}
+
+// Create new production modal
+function createNewProduction() {
+    document.getElementById('productionModal').style.display = 'flex';
+    document.getElementById('newProductionId').value = '';
+    document.getElementById('newProductionName').value = '';
+}
+
+function closeProductionModal() {
+    document.getElementById('productionModal').style.display = 'none';
+}
+
+// Confirm and create new production
+async function confirmCreateProduction() {
+    const productionId = document.getElementById('newProductionId').value.trim();
+    const productionName = document.getElementById('newProductionName').value.trim();
+    
+    if (!productionId) {
+        showStatus('Production ID is required', true);
+        return;
+    }
+    
+    if (!productionName) {
+        showStatus('Production name is required', true);
+        return;
+    }
+    
+    try {
+        const response = await fetch('http://localhost:9000/api/productions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ productionId, productionName })
+        });
+        
+        const result = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(result.error);
+        }
+        
+        closeProductionModal();
+        await refreshProductions();
+        
+        // Select the new production
+        document.getElementById('productionSelect').value = productionId;
+        await loadProduction(productionId);
+        
+        showStatus(`Production "${productionName}" created successfully!`);
+    } catch (error) {
+        showStatus(`Error creating production: ${error.message}`, true);
+    }
+}
+
+// Load production data
+async function loadProduction(productionId) {
+    if (!productionId) return;
+    
+    try {
+        const response = await fetch(`http://localhost:9000/api/tracker/load?productionId=${productionId}`);
+        if (!response.ok) throw new Error('Production not found');
+        
+        const data = await response.json();
+        
+        // Update current production
+        currentProductionId = productionId;
+        localStorage.setItem('lastProductionId', productionId);
+        
+        // Load settings
+        if (data.settings) {
+            startDateInput.value = data.settings.startDate || startDateInput.value;
+            totalChickensInput.value = data.settings.totalChickens || totalChickensInput.value;
+            weeksCountInput.value = data.settings.weeksCount || weeksCountInput.value;
+            weekStartSelect.value = data.settings.weekStartDay || weekStartSelect.value;
+        }
+        
+        // Rebuild days array
+        buildDaysArray();
+        
+        // Load performance data
+        if (data.days && data.days.length > 0) {
+            for (let i = 0; i < days.length && i < data.days.length; i++) {
+                const d = data.days[i];
+                days[i].mortality = d.mortality;
+                days[i].cartons = d.cartons;
+                days[i].weight = d.weight;
+                days[i].chickenWeight = d.chickenWeight;
+                days[i].water = d.water;
+                days[i].notes = d.notes;
+            }
+        }
+        
+        recomputeAll();
+        renderVisibleRows();
+        updateChart();
+        updateA4Chart();
+        
+        showStatus(`Loaded production: ${productionId}`);
+    } catch (error) {
+        console.error('Error loading production:', error);
+        showStatus(`Error loading production: ${error.message}`, true);
+    }
+}
+
+// Save current production data
+async function saveData() {
+    if (!currentProductionId) {
+        showStatus('Please select a production first', true);
+        return;
+    }
+    
+    const data = {
+        productionId: currentProductionId,
+        settings: {
+            startDate: startDateInput.value,
+            totalChickens: Number(totalChickensInput.value),
+            weeksCount: Number(weeksCountInput.value),
+            weekStartDay: Number(weekStartSelect.value)
+        },
+        days: days.map(d => ({
+            index: d.index,
+            date: d.date.toISOString(),
+            mortality: d.mortality,
+            cartons: d.cartons,
+            weight: d.weight,
+            chickenWeight: d.chickenWeight,
+            water: d.water,
+            notes: d.notes
+        }))
+    };
+
+    try {
+        const res = await fetch('http://localhost:9000/api/tracker/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const json = await res.json();
+        if (json.success) showStatus('✅ Data saved to production!');
+        else showStatus('❌ Save failed: ' + json.message, true);
+    } catch (err) {
+        showStatus('❌ Server error: ' + err.message, true);
+    }
+}
+
+// Delete current production
+async function deleteCurrentProduction() {
+    if (!currentProductionId) {
+        showStatus('No production selected', true);
+        return;
+    }
+    
+    if (!confirm(`Are you sure you want to delete production "${currentProductionId}"? This action cannot be undone.`)) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`http://localhost:9000/api/productions/${currentProductionId}`, {
+            method: 'DELETE'
+        });
+        
+        if (!response.ok) throw new Error('Failed to delete production');
+        
+        showStatus(`Production "${currentProductionId}" deleted successfully`);
+        
+        // Clear current data
+        currentProductionId = null;
+        localStorage.removeItem('lastProductionId');
+        document.getElementById('productionSelect').value = '';
+        
+        // Reset to default state
+        buildDaysArray();
+        
+        await refreshProductions();
+    } catch (error) {
+        showStatus(`Error deleting production: ${error.message}`, true);
+    }
+}
+
+// Export production data
+function exportProductionData() {
+    if (!currentProductionId) {
+        showStatus('No production selected', true);
+        return;
+    }
+    exportJSON();
+}
+
+// Event listener for production selection
+document.getElementById('productionSelect').addEventListener('change', function() {
+    if (this.value) {
+        loadProduction(this.value);
+    }
+});
+
+// Update the existing loadData function to use production system
+async function loadData() {
+    if (!currentProductionId) {
+        showStatus('Please select a production first', true);
+        return;
+    }
+    await loadProduction(currentProductionId);
+}
+
+// Update the initialization to include production system
+// Replace the existing initApp function with this:
+(function initApp(){
+    const today = new Date();
+    
+    // Set default values
+    startDateInput.value = today.toISOString().slice(0,10);
+    weekStartSelect.value = '0';
+    totalChickensInput.value = '3333';
+    weeksCountInput.value = String(defaultWeeks);
+    
+    // Build the table with default data
+    buildDaysArray();
+    
+    // Initialize production system
+    initProductionSystem();
+})();
+</script>
+</body>
+</html>
