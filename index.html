@@ -852,41 +852,23 @@ document.querySelectorAll('.tab').forEach(tab => {
 
 // Save settings to localStorage
 function saveSettings() {
-  const settings = {
-    startDate: startDateInput.value,
-    totalChickens: totalChickensInput.value,
-    weeksCount: weeksCountInput.value,
-    weekStartDay: weekStartSelect.value
-  };
-  localStorage.setItem('chickenTrackerSettings', JSON.stringify(settings));
+  // localStorage removed
 }
 
 // Load settings from localStorage
 function loadSettings() {
-  const saved = localStorage.getItem('chickenTrackerSettings');
-  if (saved) {
-    try {
-      const settings = JSON.parse(saved);
-      startDateInput.value = settings.startDate || startDateInput.value;
-      totalChickensInput.value = settings.totalChickens || totalChickensInput.value;
-      weeksCountInput.value = settings.weeksCount || weeksCountInput.value;
-      weekStartSelect.value = settings.weekStartDay || weekStartSelect.value;
-      return true;
-    } catch(e) {
-      console.error('Error loading settings:', e);
-    }
-  }
   return false;
 }
 
 // Initialize the application
 (function initApp(){
+  localStorage.clear();
   const today = new Date();
   
   // Set default values
   startDateInput.value = today.toISOString().slice(0,10);
   weekStartSelect.value = '0';
-  totalChickensInput.value = '3333';
+  totalChickensInput.value = '0';
   weeksCountInput.value = String(defaultWeeks);
   
   // Try to load saved settings
@@ -3463,13 +3445,7 @@ let productions = [];
 // Initialize production system
 async function initProductionSystem() {
     await refreshProductions();
-    
-    // Try to load last used production from localStorage
-    const lastProduction = localStorage.getItem('lastProductionId');
-    if (lastProduction) {
-        document.getElementById('productionSelect').value = lastProduction;
-        await loadProduction(lastProduction);
-    }
+       
 }
 
 // Refresh productions list
@@ -3560,6 +3536,7 @@ async function confirmCreateProduction() {
 }
 
 // Load production data
+// Load production data
 async function loadProduction(productionId) {
     if (!productionId) return;
     
@@ -3571,9 +3548,8 @@ async function loadProduction(productionId) {
         
         // Update current production
         currentProductionId = productionId;
-        localStorage.setItem('lastProductionId', productionId);
+        // DELETED: localStorage.setItem('lastProductionId', productionId); <--- Line Removed
         
-        // Load settings
         if (data.settings) {
             startDateInput.value = data.settings.startDate || startDateInput.value;
             totalChickensInput.value = data.settings.totalChickens || totalChickensInput.value;
@@ -3581,10 +3557,11 @@ async function loadProduction(productionId) {
             weekStartSelect.value = data.settings.weekStartDay || weekStartSelect.value;
         }
         
-        // Rebuild days array
+        // Clear days to ensure no ghost data
+        days = [];
+        
         buildDaysArray();
         
-        // Load performance data
         if (data.days && data.days.length > 0) {
             for (let i = 0; i < days.length && i < data.days.length; i++) {
                 const d = data.days[i];
