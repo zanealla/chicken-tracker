@@ -4048,7 +4048,7 @@ async function initProductionSystem() {
 // Refresh productions list
 async function refreshProductions() {
     try {
-        const response = await fetch('http://localhost:9000/api/productions');
+        const response = await fetch(`${API_BASE}/productions`);
         if (!response.ok) throw new Error('Failed to fetch productions');
         
         productions = await response.json();
