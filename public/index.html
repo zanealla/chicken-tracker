@@ -750,6 +750,7 @@
   </div>
 
 <script>
+const API_BASE = window.location.origin + '/api';
 // Reference data storage
 // Reference data storage
 let referenceData = [];
@@ -4048,7 +4049,7 @@ async function initProductionSystem() {
 // Refresh productions list
 async function refreshProductions() {
     try {
-        const response = await fetch('http://localhost:9000/api/productions');
+        const response = await fetch(`${API_BASE}/productions`);
         if (!response.ok) throw new Error('Failed to fetch productions');
         
         productions = await response.json();
@@ -4107,7 +4108,7 @@ async function confirmCreateProduction() {
     }
     
     try {
-        const response = await fetch('http://localhost:9000/api/productions', {
+        const response = await fetch(`${API_BASE}/productions`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ productionId, productionName })
@@ -4137,7 +4138,8 @@ async function loadProduction(productionId) {
     if (!productionId) return;
     
     try {
-        const response = await fetch(`http://localhost:9000/api/tracker/load?productionId=${productionId}`);
+        const response = await fetch(`${API_BASE}/tracker/load?productionId=${productionId}`)
+;
         if (!response.ok) throw new Error('Production not found');
         
         const data = await response.json();
@@ -4216,7 +4218,7 @@ async function saveData() {
     };
 
     try {
-        const res = await fetch('http://localhost:9000/api/tracker/save', {
+        const res = await fetch(`${API_BASE}/tracker/save`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -4241,7 +4243,7 @@ async function deleteCurrentProduction() {
     }
     
     try {
-        const response = await fetch(`http://localhost:9000/api/productions/${currentProductionId}`, {
+        const response = await fetch(`${API_BASE}/productions/${currentProductionId}`, {
             method: 'DELETE'
         });
         
