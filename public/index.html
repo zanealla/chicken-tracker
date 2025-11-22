@@ -4107,7 +4107,7 @@ async function confirmCreateProduction() {
     }
     
     try {
-        const response = await fetch('http://localhost:9000/api/productions', {
+        const response = await fetch('/api/productions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ productionId, productionName })
@@ -4137,7 +4137,7 @@ async function loadProduction(productionId) {
     if (!productionId) return;
     
     try {
-        const response = await fetch(`http://localhost:9000/api/tracker/load?productionId=${productionId}`);
+        const response = await fetch(`/api/tracker/load?productionId=${productionId}`);
         if (!response.ok) throw new Error('Production not found');
         
         const data = await response.json();
@@ -4216,7 +4216,7 @@ async function saveData() {
     };
 
     try {
-        const res = await fetch('http://localhost:9000/api/tracker/save', {
+        const res = await fetch('/api/tracker/save', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -4241,7 +4241,7 @@ async function deleteCurrentProduction() {
     }
     
     try {
-        const response = await fetch(`http://localhost:9000/api/productions/${currentProductionId}`, {
+        const response = await fetch(`/api/productions/${currentProductionId}`, {
             method: 'DELETE'
         });
         
